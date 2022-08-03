@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat  = require('../utils/dateFormat');
 
-// const pokemonSchema = require('./Pokemon');
+const pokemonSchema = require('./Pokemon');
 
 
 const teamSchema = new Schema(
@@ -24,7 +24,9 @@ const teamSchema = new Schema(
             required: true
         },
 
-        // pokemon: [pokemonSchema],
+        pokemon: [
+            pokemonSchema
+        ],
 
         // This way the user can show off their favorite Teams
         isFavorite: {

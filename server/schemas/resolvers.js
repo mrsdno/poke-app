@@ -24,6 +24,7 @@ const resolvers = {
         myFavTeams: async(parent, args, context) => {
             if(context.user){
               const teamData = await Team.find({"isFavorite": {"$in": ["true", true]}, username: context.user.username})
+                .populate('pokemon')
               
               return teamData;
             }
@@ -49,13 +50,14 @@ const resolvers = {
         teams: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Team.find(params).sort({ createdAt: -1})
+                .populate('pokemon')
         },
 
         // queries single Team by ID
         team: async (parent, { _id }) => {
-            return Team.findOne({ _id });
-        }
-
+            return Team.findOne({ _id })
+                .populate('pokemon')
+        },
     },
 
     // mutations go here
@@ -100,6 +102,21 @@ const resolvers = {
 
             // if user is not Logged in
             throw new AuthenticationError('You need to be logged in to create a team!');
+        },
+
+        addPokemon: async (parent, { teamId, name, height, weight, type }, context) => {
+            if(context.user) {
+
+                const updatedTeam = await Team.findOneAndUpdate(
+                    { _id: teamId },
+                    { $push: {pokemon: { teamId, name, height, weight, type}}},
+                    { new: true, runValidators: true}                    
+                );
+
+                return updatedTeam;
+            }
+
+            throw new AuthenticationError('You need to be logged in to add a pokemon');
         }
     }
 };

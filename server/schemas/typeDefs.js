@@ -15,8 +15,18 @@ const typeDefs = gql`
         teamName: String
         createdAt: String
         username: String
-        # pokemon: [Pokemon]
+        pokemon: [Pokemon]
         isFavorite: Boolean
+    }
+
+    type Pokemon {
+        _id: ID
+        teamId: String
+        name: String
+        height: String
+        weight: String
+        type: [String]
+        image: String
     }
 
     type Auth {
@@ -37,6 +47,13 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addTeam(teamName: String!, isFavorite: Boolean!): Team
+        addPokemon(
+            teamId: String!,
+            name: String!,
+            height: String!,
+            weight: String!, 
+            type: [String!]
+            ): Pokemon
     }
 `;
 
