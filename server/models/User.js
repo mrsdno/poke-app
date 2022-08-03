@@ -24,7 +24,7 @@ const userSchema = new Schema(
             minlength: 6
         },
         
-        pokeTeams: [
+        teams: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Team'

@@ -7,7 +7,16 @@ const typeDefs = gql`
         username: String
         email: String
         teamCount: Int     
-        # need to add Teams: [Team]   
+        teams: [Team]   
+    }
+
+    type Team {
+        _id: ID
+        teamName: String
+        createdAt: String
+        username: String
+        # pokemon: [Pokemon]
+        isFavorite: Boolean
     }
 
     type Auth {
@@ -17,18 +26,18 @@ const typeDefs = gql`
 
     type Query {
         me: User
+        myFavTeams: [Team]
         users: [User]
         user(username: String!): User
+        teams(username: String): [Team]
+        team(_id: ID!): Team
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
+        addTeam(teamName: String!, isFavorite: Boolean!): Team
     }
-
-    
-
-
 `;
 
 module.exports = typeDefs;
