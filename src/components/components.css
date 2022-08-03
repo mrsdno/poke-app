@@ -1,0 +1,27 @@
+*{
+    text-align: center;
+}
+
+header{
+    background-color: black;
+}
+
+.bg-b{
+    background-color: black;
+}
+
+.pokemon-logo{
+    display: block;
+    height: auto;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.container-v{
+    display: flex;
+    flex-direction: row;
+    display: block;
+}
+
