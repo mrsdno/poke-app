@@ -1,36 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { fetchPokeApi } from '../utils/PokeApi';
-
+import React, { useState, useEffect } from "react";
+import { fetchPokeApi, fetchPokemonData } from "../utils/PokeApi";
 
 const PokemonList = () => {
-    const [pokemonList, setPokemonList] = useState('');
+  const [pokemonList, setPokemonList] = useState("");
 
-    const handleGetPokemon = async query => {
-        try {
-            const response = await fetchPokeApi(query);
+  async function handleGetPokemon() {
+    const pokemon = await fetchPokeApi();
+    setPokemonList(pokemon);
 
-            if (!response.ok) {
-                throw new Error('Something went wrong!');
-            }
+    console.log(pokemonList);
+  }
 
-            const fetchedPokemonList = await response.json();
-
-            setPokemonList(fetchedPokemonList);
-
-            console.log(pokemonList);
-        } catch (err) {
-            console.log(err);
-        }
-        
-    }
-
-    return (
-      <div>
-        <button type="button" onClick={handleGetPokemon}>
-          SUBMIT
-        </button>
+  return (
+    <div>
+      <button type="button" onClick={handleGetPokemon}>
+        SUBMIT
+      </button>
+      <div className="wrapper">
+        {pokemonList &&
+          pokemonList.map((pokemon) => (
+            <div className="pokemonCard" key={pokemon.id}>
+              <h1>{pokemon.name}</h1>
+              <img src={pokemon.image} />
+              <p>height: {pokemon.height}</p>
+              <p>weight: {pokemon.weight}</p>
+              <ul>
+                {" "}
+                Types:
+                {pokemon.types.map((types) => (
+                  <li key={types.slot}>{types.type.name}</li>
+                ))}
+              </ul>
+              <p>{pokemon.flavorText}</p>
+              <p>color: {pokemon.color}</p>
+            </div>
+          ))}
       </div>
-    );
-    }
+    </div>
+  );
+};
 
 export default PokemonList;
