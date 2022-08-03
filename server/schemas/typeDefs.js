@@ -27,6 +27,7 @@ const typeDefs = gql`
         weight: String
         type: [String]
         image: String
+        description: String
     }
 
     type Auth {

@@ -31,6 +31,10 @@ const pokemonSchema = new Schema (
 
         image: {
             type: String,
+        },
+        
+        description: {
+            type: String,
         }
     }
 );
