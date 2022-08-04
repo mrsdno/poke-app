@@ -1,13 +1,11 @@
 import React from 'react'
-import '../../../src/App.js'
-import { Outlet } from "react-router-dom"
+import '../App.js'
 import Header from "../Components/Header/Header"
 
 function Home() {
   return (
     <div>
-        <Header/>
-        <div>home</div>
+        <div></div>
 
         <div className="text-center container">
 

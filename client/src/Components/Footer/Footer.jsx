@@ -10,4 +10,4 @@ function Footer () {
   )
 };
 
-export default Fo 
+export default Footer
