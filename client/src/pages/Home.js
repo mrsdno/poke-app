@@ -1,6 +1,5 @@
 import React from 'react'
 import '../App.js'
-import Header from "../Components/Header/Header"
 
 function Home() {
   return (

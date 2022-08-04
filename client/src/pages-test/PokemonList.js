@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchPokeApi, fetchPokemonData } from "../utils/PokeApi";
+import { fetchPokeApi } from "../utils/PokeApi";
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState("");
@@ -11,14 +11,15 @@ const PokemonList = () => {
     console.log(pokemonList);
   }
 
+useEffect(() => {
+  handleGetPokemon();
+}, []);
+
   return (
     <div>
-      <button type="button" onClick={handleGetPokemon}>
-        SUBMIT
-      </button>
       <div className="wrapper">
         {pokemonList &&
-          pokemonList.map((pokemon) => (
+          pokemonList?.map((pokemon) => (
             <div className="pokemonCard" key={pokemon.id}>
               <h1>{pokemon.name}</h1>
               <img src={pokemon.image} />
@@ -27,7 +28,7 @@ const PokemonList = () => {
               <ul>
                 {" "}
                 Types:
-                {pokemon.types.map((types) => (
+                {pokemon?.types?.map((types) => (
                   <li key={types.slot}>{types.type.name}</li>
                 ))}
               </ul>
