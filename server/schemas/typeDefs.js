@@ -53,7 +53,9 @@ const typeDefs = gql`
             name: String!,
             height: String!,
             weight: String!, 
-            type: [String!]
+            type: [String!],
+            image: String!, 
+            description: String!
             ): Pokemon
     }
 `;
