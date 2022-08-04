@@ -4,19 +4,27 @@ import { fetchPokeApi } from "../utils/PokeApi";
 
 function PokemonList() {
 
-    const [pokemonList, setPokemonList] = useState("");
+  const [pokemonList, setPokemonList] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
     async function handleGetPokemon() {
       const pokemon = await fetchPokeApi();
       setPokemonList(pokemon);
-
-      console.log(pokemonList);
+      setIsLoaded(true);
     }
 
     useEffect(() => {
       handleGetPokemon();
     }, []);
 
+  if (!isLoaded) {
+    return (
+      <div className="center">
+        <div className="ball"></div>
+      </div>
+    );
+  }
+  
   return (
     <div>
       <div className="wrapper">
