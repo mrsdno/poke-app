@@ -27,6 +27,7 @@ const typeDefs = gql`
         weight: String
         type: [String]
         image: String
+        description: String
     }
 
     type Auth {
@@ -52,7 +53,9 @@ const typeDefs = gql`
             name: String!,
             height: String!,
             weight: String!, 
-            type: [String!]
+            type: [String!],
+            image: String!, 
+            description: String!
             ): Pokemon
     }
 `;

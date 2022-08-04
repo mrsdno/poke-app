@@ -104,12 +104,12 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in to create a team!');
         },
 
-        addPokemon: async (parent, { teamId, name, height, weight, type }, context) => {
+        addPokemon: async (parent, { teamId, name, height, weight, type, image, description }, context) => {
             if(context.user) {
 
                 const updatedTeam = await Team.findOneAndUpdate(
                     { _id: teamId },
-                    { $push: {pokemon: { teamId, name, height, weight, type}}},
+                    { $push: {pokemon: { teamId, name, height, weight, type, image, description}}},
                     { new: true, runValidators: true}                    
                 );
 
