@@ -60,14 +60,14 @@ const Login = (props) => {
             <h3 className="card-title red-text">Login</h3>
           
             <form action="login" className="login-form" onSubmit={handleFormSubmit}>
-              {/* Username Input */}
+              {/* EMAIL Input */}
               <input 
               className="margin-input"
-              type="text"
+              type="email"
               id="user-login"
-              name="username"
-              placeholder="Username"
-              value={formState.username}
+              name="email"
+              placeholder="Your Email"
+              value={formState.email}
               onChange={handleChange}
               />
 
