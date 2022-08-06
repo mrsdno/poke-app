@@ -45,6 +45,52 @@ mutation AddTeam($teamName: String!, $isFavorite: Boolean!) {
 }
 `
 
+// mutation for Editing Team
+export const EDIT_TEAM = gql `
+  mutation EditTeam(
+    $teamName: String!,
+    $isFavorite: Boolean!,
+    $pokemon: PokemonInput!
+    ) {
+      editTeam(
+        teamName: $teamName,
+        isFavorite: $isFavorite,
+        pokemon: $pokemon
+        ){
+          _id
+          teamName
+          createdAt
+          username
+          isFavorite
+          pokemon {
+            _id
+            teamId
+            name
+            height
+            weight
+            typeDefsimage
+            description
+          }
+        }
+    }
+`;
+// the above mutation expects the Following.  It will return a new Team, so any pokemon not edited will not be returned.  
+// { 
+//   "teamName": "Edit Team Name",
+//   "isFavorite": true,
+//   "pokemon": {
+//     "_id": "62ed36a7b60b4486f40ebc9d",
+//     "teamId": "62ed35ebb60b4486f40ebc96",
+//     "name": "Edit Pokemon 1",
+//     "height": "Edited height",
+//     "weight": "edited Weight",
+//     "type": ["Normal", "Rock"],
+//     "image": "editedImgUrl",
+//     "description": "Edited Description"
+//   }
+// }
+
+
 export const ADD_POKEMON = gql`
   mutation AddPokemon(
     $teamId: String!

@@ -1,7 +1,15 @@
 import React from 'react'
 import '../App.js'
 
+// importing pages
+import Login from './Login';
+import Signup from './Signup';
+
+import Auth from '../utils/auth';
+
 function Home() {
+
+    const loggedIn = Auth.loggedIn();
   return (
     <div>
         <div></div>
@@ -15,6 +23,12 @@ function Home() {
             <h2 className="black-text row-align-item-center">
                 If you have an account with us please sign in! If you are new please make an account!
             </h2>
+
+            {loggedIn ? (
+                <Login />
+            ) : (
+                <Signup />
+            )}
 
         <img className="pokemon-hello" 
             src="https://c.tenor.com/rbx3ph5SLRUAAAAi/pikachu-pokemon.gif" 

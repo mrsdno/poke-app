@@ -44,6 +44,18 @@ const typeDefs = gql`
         team(_id: ID!): Team
     }
 
+    # grabs Pokemon info for editing the team
+    input PokemonInput {
+        _id: ID
+        teamId: String
+        name: String
+        height: String
+        weight: String
+        type: [String]
+        image: String
+        description: String        
+    }
+
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
@@ -57,6 +69,11 @@ const typeDefs = gql`
             image: String!, 
             description: String!
             ): Pokemon
+        editTeam(
+            teamName: String!,
+            isFavorite: Boolean!,
+            pokemon: PokemonInput!
+            ): Team
     }
 `;
 
