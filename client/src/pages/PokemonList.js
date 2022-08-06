@@ -32,7 +32,7 @@ function PokemonList() {
           pokemonList?.map((pokemon) => (
             <div className="pokemonCard" key={pokemon.id}>
               <h1>{pokemon.name}</h1>
-              <img src={pokemon.image} />
+              <img alt='pokemon image' src={pokemon.image} />
               <p>height: {pokemon.height}</p>
               <p>weight: {pokemon.weight}</p>
               <ul>

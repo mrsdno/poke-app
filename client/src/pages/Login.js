@@ -7,19 +7,19 @@ function Login() {
 
         <img className="pika-cute" src="https://pixy.org/src/108/1088380.png" alt="pikachu-cute"/> 
 
-        <div className="login card mx-auto login-card" style="width: 18rem;">
+        <div className="login card mx-auto login-card">
 
-          <div className="card-body ">
+          <div className="card-body">
 
             <h3 className="card-title red-text">Login</h3>
           
-            <form action="login" class="login-form">
-              <input class="margin-input" type="text" id="user-login" name="user-login" placeholder="Username"/>
-              <input class="margin-input" type="password" id="password-login" name="password-login" placeholder="Password"/>
+            <form action="login" className="login-form">
+              <input className="margin-input" type="text" id="user-login" name="user-login" placeholder="Username"/>
+              <input className="margin-input" type="password" id="password-login" name="password-login" placeholder="Password"/>
 
               <br></br>
 
-              <button class="login-btn btn btn-dark" type="submit">Login</button>
+              <button className="login-btn btn btn-dark" type="submit">Login</button>
 
             </form>
           </div>
@@ -27,14 +27,14 @@ function Login() {
       </div>
 
     
-      <div class="signup card mx-auto signup-card" style="width: 18rem;">
-        <div class="card-body ">
-          <h3 class="card-title red-text">Sign Up</h3>
+      <div className="signup card mx-auto signup-card">
+        <div className="card-body ">
+          <h3 className="card-title red-text">Sign Up</h3>
           <div>
-            <form action="signup" class="signup-form">
-              <input class="margin-input" type="text" id="username-signup" name="username" placeholder="Username"/>
-              <input class="margin-input" type="password" id="password-signup" name="password" placeholder="Password"/>
-              <button class="signup-btn btn btn-dark" type="submit">Sign Up</button>
+            <form action="signup" className="signup-form">
+              <input className="margin-input" type="text" id="username-signup" name="username" placeholder="Username"/>
+              <input className="margin-input" type="password" id="password-signup" name="password" placeholder="Password"/>
+              <button className="signup-btn btn btn-dark" type="submit">Sign Up</button>
 
             </form>
           </div>

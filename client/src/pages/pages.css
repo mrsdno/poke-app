@@ -1,0 +1,7 @@
+.home{
+    background-color: var(--color-secondary)
+}
+
+.text-red{
+    color: var(--color-text-2);
+}

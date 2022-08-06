@@ -1,9 +1,10 @@
 import React from 'react'
 import '../App.js'
+import "./pages.css"
 
 function Home() {
   return (
-    <div>
+    <div className='home'>
         <div></div>
 
         <div className="text-center container">
