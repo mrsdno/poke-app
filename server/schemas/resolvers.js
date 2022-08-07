@@ -104,6 +104,24 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in to create a team!');
         },
 
+        // mutation for editing Team
+        editTeam: async(parent, args, context) => {
+            if(context.user) {
+                const updatedTeam = await Team.findOneAndUpdate({ ...args, username: context.user.username});
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { teams: updatedTeam._id }},
+                    { new: true }
+                );
+
+                return updatedTeam;
+            }
+
+            throw new AuthenticationError('You need to be logged in to update your team!');
+
+        },        
+
         addPokemon: async (parent, { teamId, name, height, weight, type, image, description }, context) => {
             if(context.user) {
 
