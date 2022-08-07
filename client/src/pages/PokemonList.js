@@ -52,6 +52,7 @@ function PokemonList() {
       </div>
       <div className="wrapper">
         {pokemonList &&
+
           pokemonList
             .filter((pokemon) => {
               if (queryName === "") {
@@ -88,6 +89,7 @@ function PokemonList() {
                 <p>color: {pokemon.color}</p>
               </div>
             ))}
+
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import PokemonList from "./pages/PokemonList";
 import PokemonTeam from "./pages/PokemonTeam";
+import ErrorPage from "./pages/ErrorPage";
 
 import {
     ApolloClient,
@@ -20,6 +21,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 
 const httpLink = createHttpLink({
@@ -42,11 +44,13 @@ const client = new ApolloClient({
 })
 
 function App() {
+
     return (
         <div>
             <header>
                 <Header/>
             </header>
+
             <ApolloProvider client={client}>
                 <Router>
                     <Routes>
@@ -55,9 +59,11 @@ function App() {
                         <Route path='/signup' element={<Signup />} />
                         <Route path="/pokemonteam" element={<PokemonTeam/>} />
                         <Route path="/pokemonlist" element={<PokemonList/>} />
+                        <Route path="*" element={<ErrorPage/>}/>
                     </Routes>
                 </Router>
             </ApolloProvider>
+
 
             <footer>
                 <Footer/>
@@ -67,5 +73,6 @@ function App() {
         
     )
 }
+
 
 export default App;

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.js'
+import "./pages.css"
 
 // importing pages
 import Login from './Login';
@@ -11,7 +12,7 @@ function Home() {
 
     const loggedIn = Auth.loggedIn();
   return (
-    <div>
+    <div className='home'>
         <div></div>
 
         <div className="text-center container">

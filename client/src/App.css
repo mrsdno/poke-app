@@ -1,3 +1,66 @@
+
+/*root variables*/
+:root{
+  --color-background: rgb(0, 0, 0);
+  --color-primary: rgb(255, 203, 5);
+  --color-secondary: rgb(53,100,174);
+  --color-third:rgb(187,26,26);
+  --color-text-1: rgb(0,0,0);
+  --color-text-2: rgb(132,14,18);
+}
 *{
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
+
+/*=================containers===============*/
+/*container verticle*/
+.container-v{
+  display: flex;
+  flex-direction: row;
+  display: block;
+}
+
+/*=======margins=========*/
+/*margin of 5px*/
+.marg-5{
+  margin: 5px;
+}
+/*margin 10px*/
+.marg-10{
+  margin: 10px;
+}
+
+/*============button styles===========*/
+/* button styles */
+body{
+  background-color: var(--color-background);
+}
+.btn-1{
+  color: var(--color-text-1);
+  padding: 5px,5px,5px,5px;
+  background-color: var(--color-secondary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+.btn-1:hover{
+  background-color: var(--color-primary);
+}
+
+/* button styles 2*/
+.btn-2{
+  color: var(--color-text-1);
+  padding: 5px,5px,5px,5px;
+  background-color: var(--color-secondary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+.btn-2:hover{
+  background-color: var(--color-third) ;
+}
+
