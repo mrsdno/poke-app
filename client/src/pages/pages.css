@@ -5,3 +5,16 @@
 .text-red{
     color: var(--color-text-2);
 }
+
+/*==========/login============*/
+.loginStyle{
+    background-color: var(--color-secondary);
+}
+.pika-cute{
+    width: auto;
+    width: 30%;
+}
+.eevee-cute{
+    width: auto;
+    width: 28%;
+}

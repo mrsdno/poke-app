@@ -40,11 +40,11 @@ body{
 }
 .btn-1{
   color: var(--color-text-1);
-  padding: 5px,5px,5px,5px;
+  padding: 5px 10px 5px 10px;
   background-color: var(--color-secondary);
   border: 3px solid var(--color-secondary);
   border-radius: 5px;
-  
+  font-size: x-large;
   cursor: pointer;
 }
 .btn-1:hover{
@@ -54,14 +54,39 @@ body{
 /* button styles 2*/
 .btn-2{
   color: var(--color-text-1);
-  padding: 5px,5px,5px,5px;
+  padding: 5px 10px 5px 10px;
   background-color: var(--color-secondary);
   border: 3px solid var(--color-secondary);
   border-radius: 5px;
+  font-size: x-large;
   
   cursor: pointer;
 }
 .btn-2:hover{
   background-color: var(--color-third) ;
 }
+/*button style 2*/
+body{
+  background-color: var(--color-background);
+}
+.btn-3{
+  color: var(--color-text-1);
+  padding: 5px 10px 5px 10px;
+  background-color: var(--color-primary);
+  border: 3px solid var(--color-primary);
+  border-radius: 5px;
+  margin: 10px 10px 10px 10px;
+  font-size: larger;
+  cursor: pointer;
+}
+.btn-3:hover{
+  background-color: var(--color-secondary);
+}
 
+/*============form styles============*/
+.form-1{
+  margin: 5px 5px 5px 5px;
+  font-size: larger;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+}

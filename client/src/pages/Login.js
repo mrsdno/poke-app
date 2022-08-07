@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import './pages.css';
+import '../App.css'
+import PikaCute from '../assets/pikachu.png'
+import EeveeCute from '../assets/eevee.png'
 
 import Auth from '../utils/auth';
   
@@ -45,54 +49,52 @@ const Login = (props) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className='loginStyle'>
+      <div className="container-v">
 
-        <img className="pika-cute" src="https://pixy.org/src/108/1088380.png" alt="pikachu-cute"/> 
+        <img className="pika-cute" src={PikaCute} alt="pikachu-cute"/> 
+     
+        <img className='eevee-cute' src={EeveeCute} alt="pikachu-cute" />
 
-        <div className="login card mx-auto login-card"
-        // keep getting error 'Style prop value must be an object'
-        //  style="width: 18rem;"
-         >
+        <div >
 
-          <div className="card-body">
+          <h3 className="card-title red-text">Login</h3>
+        
+          <form action="login" className="login-form" onSubmit={handleFormSubmit}>
+            {/* EMAIL Input */}
+            <input 
+            className="form-1"
+            type="email"
+            id="user-login"
+            name="email"
+            placeholder="Your Email"
+            value={formState.email}
+            onChange={handleChange}
+            />
+            <br></br>
 
-            <h3 className="card-title red-text">Login</h3>
-          
-            <form action="login" className="login-form" onSubmit={handleFormSubmit}>
-              {/* EMAIL Input */}
-              <input 
-              className="margin-input"
-              type="email"
-              id="user-login"
-              name="email"
-              placeholder="Your Email"
-              value={formState.email}
-              onChange={handleChange}
-              />
+            {/* password Input */}
+            <input 
+            className="form-1"
+            type="password"
+            id="password-login"
+            name="password"
+            placeholder="Password"
+            value={formState.password}
+            onChange={handleChange}
+            />
 
-              {/* password Input */}
-              <input 
-              className="margin-input"
-              type="password"
-              id="password-login"
-              name="password"
-              placeholder="Password"
-              value={formState.password}
-              onChange={handleChange}
-              />
+            <br></br>
 
-              <br></br>
+            <button className="btn-3" type="submit">Login</button>
 
-              <button className="login-btn btn btn-dark" type="submit">Login</button>
+          </form>
 
-            </form>
+          {/* Shows error if Login fails */}
+          {error && <div>Login Failed </div>}
 
-            {/* Shows error if Login fails */}
-            {error && <div>Login Failed </div>}
-
-          </div>
         </div>
+
       </div>
 
 {/*     
