@@ -18,3 +18,12 @@
     width: auto;
     width: 28%;
 }
+
+/*===============/signup============*/
+.SignUp{
+    background-color: var(--color-secondary);
+}
+h3{
+    font-size: xx-large;
+    
+}

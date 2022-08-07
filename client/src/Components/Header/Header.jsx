@@ -20,13 +20,7 @@ function Header() {
             </div>
             
         </div>
-        
-
-        <div>
-            <h1>
-                Pokemon Team Builder
-            </h1>
-        </div>
+        <br></br>
     </header>
     
 
