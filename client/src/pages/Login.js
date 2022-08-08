@@ -46,6 +46,10 @@ const Login = (props) => {
       username: '',
       password: '',
     });
+
+    // redirect user to team page
+    this.props.history.push('/pokemonteam')
+      .catch((err) => { console.log(err) });
   };
 
   return (

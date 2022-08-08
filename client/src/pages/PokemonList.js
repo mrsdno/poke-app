@@ -30,7 +30,7 @@ function PokemonList() {
   }
   
   return (
-    <div>
+    <div class="pokemon-list">
       <div>
         <input
           placeholder="Enter Post Title"

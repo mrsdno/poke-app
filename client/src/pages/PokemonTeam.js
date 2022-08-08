@@ -23,7 +23,7 @@ function PokemonTeam() {
 
             <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
             
-            <button className="btn-1-s  add-pokemon" type="submit" id="add-pokemon">Choose your pokemon</button>
+            <button className="btn-1-s  add-pokemon" type="submit" id="add-pokemon" onClick={() => { window.location.assign('/pokemonlist') }}>Choose your pokemon</button>
             
           </div>
 
