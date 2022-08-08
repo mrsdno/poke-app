@@ -11,7 +11,7 @@ import Auth from '../utils/auth';
 
 const Login = (props) => {
 
-  const [formState, setFormState] = useState({ username: '', password: ''});
+  const [formState, setFormState] = useState({ email: '', password: ''});
   const [login, { error }] = useMutation(LOGIN_USER);
 
   // updates state based on form input changes
@@ -43,7 +43,7 @@ const Login = (props) => {
 
     // clear the values from the form
     setFormState({
-      username: '',
+      email: '',
       password: '',
     });
   };
