@@ -1,5 +1,6 @@
 import decode from "jwt-decode";
 
+
 class AuthService {
   // retrieve data saved in token
   getProfile() {
@@ -39,7 +40,9 @@ class AuthService {
     // Saves user token to localStorage
     localStorage.setItem("id_token", idToken);
 
-    window.location.assign("/");
+    // redirect user to pokemon team page
+    window.location.assign("/pokemonteam");
+
   }
 
   // clear token from localStorage and force logout with reload
