@@ -1,13 +1,14 @@
 import React from 'react'
+import './pages.css'
 
 function PokemonTeam() {
   return (
-    <div>
-      <div className="container margin-cards">
-        <div className="card-group">
+    <div className='PokemonTeam'>
+      <div className="container-v teambox">
+        <div className="container-h ">
 
           {/* first pokemon */}
-          <div className="pokemon card">
+          <div className="pokemon">
             if pokemon selected, pokemon name here
             <img className="card-img-top team-image" src='' alt="Card1"/>
 
@@ -20,9 +21,9 @@ function PokemonTeam() {
                 </p>
             </div>
 
-            <button className="btn btn-outline-danger delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
+            <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
             
-            <button className="btn btn-secondary add-pokemon" type="submit" id="add-pokemon">Choose your pokemon</button>
+            <button className="btn-1-s  add-pokemon" type="submit" id="add-pokemon">Choose your pokemon</button>
             
           </div>
 
@@ -39,9 +40,9 @@ function PokemonTeam() {
               </p>
             </div>
 
-            <button className="btn btn-outline-danger delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
+            <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
             
-            <button className="btn btn-secondary add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>
+            <button className="btn-1-s add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>
             
           </div>
 
@@ -58,17 +59,14 @@ function PokemonTeam() {
               </p>
             </div>
 
-            <button className="btn btn-outline-danger delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
+            <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
                 
-            <button className="btn btn-secondary add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button> 
+            <button className="btn-1-s add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button> 
           </div>
 
         </div>
-      </div>
-    
 
-      <div className="container margin-cards">
-        <div className="card-group">
+        <div className="container-h">
 
           {/* fourth pokemon */}
           <div className="pokemon card">
@@ -84,10 +82,10 @@ function PokemonTeam() {
               </p>
             </div>
 
-            <button className="btn btn-outline-danger delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
+            <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
                   
-            <button className="btn btn-secondary add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>  
-          
+            <button className="btn-1-s add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>  
+
           </div>
 
           {/* fifth pokemon*/}
@@ -104,9 +102,9 @@ function PokemonTeam() {
               </p>
             </div>
 
-            <button className="btn btn-outline-danger delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
+            <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id=''>Delete Pokemon</button>
                       
-            <button className="btn btn-secondary add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>
+            <button className="btn-1-s add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>
                   
           </div>
               
@@ -125,13 +123,16 @@ function PokemonTeam() {
               </p>
             </div>
 
-            <button className="btn btn-outline-danger delete-pokemon" type="submit" id="delete-pokemon" data-id='' >Delete Pokemon</button>
+            <button className="btn-2-s delete-pokemon" type="submit" id="delete-pokemon" data-id='' >Delete Pokemon</button>
                   
-            <button className="btn btn-secondary add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>
+            <button className="btn-1-s add-pokemon" type="button" id="add-pokemon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose your pokemon</button>
                   
-              </div>
           </div>
+        </div>
+
       </div>
+    
+
     </div>
   )
 }

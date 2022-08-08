@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Noto+Serif:wght@400;700&display=swap');
 
 /*root variables*/
 :root{
   --color-background: rgb(0, 0, 0);
   --color-primary: rgb(255, 203, 5);
+  --color-primary-t: rgba(255, 205, 5, 0.774);
   --color-secondary: rgb(53,100,174);
   --color-third:rgb(187,26,26);
   --color-text-1: rgb(0,0,0);
@@ -12,14 +14,24 @@
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
+  font-family: 'Noto Serif';
+  
+}
+
+body{
+  background-color: var(--color-background);
 }
 
 /*=================containers===============*/
 /*container verticle*/
 .container-v{
   display: flex;
-  flex-direction: row;
-  display: block;
+  flex-direction: column;
+}
+/*container horizontal */
+.container-h{
+  display: flex;
+  justify-content: center;
 }
 
 /*=======margins=========*/
@@ -33,34 +45,88 @@
 }
 
 /*============button styles===========*/
-/* button styles */
-body{
-  background-color: var(--color-background);
-}
+/* button styles 1 */
+
 .btn-1{
   color: var(--color-text-1);
-  padding: 5px,5px,5px,5px;
+  padding: 5px 10px 5px 10px;
   background-color: var(--color-secondary);
   border: 3px solid var(--color-secondary);
   border-radius: 5px;
-  
+  font-size: x-large;
+  text-shadow: 1.2px 1.2px #1d1d1b;
   cursor: pointer;
 }
 .btn-1:hover{
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-t);
+}
+/*btn 1 small*/
+.btn-1-s{
+  color: var(--color-text-1);
+  padding: 5px 10px 5px 10px;
+  margin: 5px 5px 5px 5px ;
+  background-color: var(--color-secondary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 5px;
+  font-size: medium;
+  cursor: pointer;
+}
+.btn-1-s:hover{
+  background-color: var(--color-primary-t);
 }
 
 /* button styles 2*/
 .btn-2{
   color: var(--color-text-1);
-  padding: 5px,5px,5px,5px;
+  padding: 5px 10px 5px 10px;
   background-color: var(--color-secondary);
   border: 3px solid var(--color-secondary);
   border-radius: 5px;
-  
+  font-size: x-large;
+  text-shadow: 1.2px 1.2px #1d1d1b;
   cursor: pointer;
 }
 .btn-2:hover{
   background-color: var(--color-third) ;
 }
+/*btn 1 small*/
+.btn-2-s{
+  color: var(--color-text-1);
+  padding: 5px 10px 5px 10px;
+  margin: 5px 5px 5px 5px ;
+  background-color: var(--color-third);
+  border: 3px solid var(--color-third);
+  border-radius: 5px;
+  font-size: medium;
+  cursor: pointer;
+}
 
+/*button style 3*/
+.btn-3{
+  color: var(--color-text-1);
+  padding: 5px 10px 5px 10px;
+  background-color: var(--color-primary);
+  border: 3px solid var(--color-primary);
+  border-radius: 5px;
+  margin: 10px 10px 10px 10px;
+  font-size: larger;
+  cursor: pointer;
+  text-shadow: 0px 0px;
+}
+.btn-3:hover{
+  background-color: var(--color-secondary);
+}
+
+/*============form styles============*/
+.form-1{
+  margin: 5px 5px 5px 5px;
+  font-size: larger;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  text-shadow: 0px 0px;
+}
+
+/*============text shadow=========*/
+.text-shadow{
+  text-shadow: 1.2px 1.2px #444141;
+}
