@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
+import '.././assets/styles/login.css';
 import Auth from '../utils/auth';
+import  {TextField}  from '@mui/material';
   
 
 const Login = (props) => {
@@ -64,6 +65,8 @@ const Login = (props) => {
 
             <form action="login" className="login-form" onSubmit={handleFormSubmit}>
               {/* EMAIL Input */}
+              {/* <TextField label = 'outlined' variant = 'outlined'/> */}
+
               <input 
               className="margin-input"
               type="email"
@@ -88,7 +91,7 @@ const Login = (props) => {
 
               <br></br>
 
-              <button className="login-btn btn btn-dark" type="submit">Login</button>
+              <button className="btn btn-dark loginBtn" type="submit">Login</button>
 
             </form>
 
