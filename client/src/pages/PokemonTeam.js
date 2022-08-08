@@ -1,11 +1,45 @@
-import React from 'react'
-import './pages.css'
+import React, {useState} from 'react';
+import { useQuery, useMutation } from "@apollo/client";
+import { ADD_TEAM } from '../utils/mutations';
+import { QUERY_ME } from "../utils/queries";
+
+import './pages.css';
 
 function PokemonTeam() {
+    const [teamName, setText] = useState("");
+  const [addTeam, { error }] = useMutation(ADD_TEAM);
+    const { data: userData } = useQuery(QUERY_ME);
+
+  
+      const handleChange = (event) => {
+        if (event.target.value.length <= 280) {
+          setText(event.target.value);
+        }
+  };
+  
+  const handleAddTeam = async (event) => {
+    event.preventDefault();
+      console.log(userData);
+
+      try {
+        const { data } = await addTeam({
+          variables: { teamName, userData },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    };
+  
+  
+  
   return (
     <div className='PokemonTeam'>
       <div className="container-v teambox">
-        <div className="container-h ">
+        <form id="add-team" onSubmit={handleAddTeam}>
+          <input id="team-name" value={teamName} placeholder="team name" onChange={handleChange}></input>
+        <button className="btn-1" type="submit" id="add-team">Add Team</button>
+        </form>
+          <div className="container-h ">
 
           {/* first pokemon */}
           <div className="pokemon">
