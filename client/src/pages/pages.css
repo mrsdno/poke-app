@@ -27,3 +27,30 @@ h3{
     font-size: xx-large;
     
 }
+
+/*==============/pokemonteam=================*/
+.PokemonTeam{
+    background-color: var(--color-secondary);
+    padding: 20px 10px 20px 10px;
+
+}
+.teambox{
+    background-color: var(--color-primary-t);
+    border: 3px solid rgb(248, 248, 248);
+    border-radius: 10px;
+    margin: 20px 10px 20px 10px;
+    padding: 20px 10px 20px 10px;
+
+}
+
+
+/*============error page==============*/
+.creepy-pasta{
+    height: auto;
+    width: 70%;
+}
+.scary-text{
+    font-size: x-large;
+    text-shadow: 2px 2px #c41c1c;
+}
+

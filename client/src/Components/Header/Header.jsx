@@ -10,7 +10,7 @@ function Header() {
             <div>
                 <img alt="Pokemon Logo" className="pokemon-logo bg-b" src={pokemonLogo} />
             </div>
-            <div>
+            <div className='text-shadow'>
                 <button className='btn-1 marg-5' type="button">
                     Login
                 </button>
