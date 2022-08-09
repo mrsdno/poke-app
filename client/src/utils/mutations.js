@@ -25,7 +25,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_TEAM = gql`
-mutation AddTeam($teamName: String!, $isFavorite: Boolean!) {
+mutation AddTeam($teamName: String!, $isFavorite: Boolean) {
   addTeam(teamName: $teamName, isFavorite: $isFavorite) {
     _id
     teamName
@@ -49,7 +49,7 @@ mutation AddTeam($teamName: String!, $isFavorite: Boolean!) {
 export const EDIT_TEAM = gql `
   mutation EditTeam(
     $teamName: String!,
-    $isFavorite: Boolean!,
+    $isFavorite: Boolean,
     $pokemon: PokemonInput!
     ) {
       editTeam(
