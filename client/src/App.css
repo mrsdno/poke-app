@@ -73,8 +73,7 @@ body{
   cursor: pointer;
 }
 .btn-1-s:hover{
-  background-color: var(--color-primary-t);
-  color:black;
+  box-shadow: 10px 2px 13px -7px rgba(0,0,0,0.3);
 }
 
 /* button styles 2*/
@@ -91,6 +90,7 @@ body{
 .btn-2:hover{
   background-color: var(--color-third) ;
   color:black;
+  cursor: pointer;
 }
 /*btn 1 small*/
 .btn-2-s{
@@ -105,7 +105,8 @@ body{
 }
 
 .btn-2-s:hover{
-  color:black;
+  box-shadow: 10px 2px 13px -7px rgba(0,0,0,0.3);
+  cursor: pointer;
 }
 
 /*button style 3*/

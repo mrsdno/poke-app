@@ -93,8 +93,14 @@ h3{
 }
 
 .pokemon{
-    margin: 20px 0;
-    border: 2px solid black;
-    padding: 4px;
-    border-radius: 5px;
+   background-color: white;
+   margin: 15px 0;
+   padding: 30px 10px;
+   border-radius: 10px;
+   box-shadow: 10px 2px 23px -7px rgba(0,0,0,0.3);
 }
+
+.pokemon-card-buttonContainer{
+    margin-top: 15px;
+}
+
