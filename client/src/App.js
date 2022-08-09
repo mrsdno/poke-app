@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./App.css"
 
 import Header from './components/Header'
@@ -21,7 +20,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 
 
 const httpLink = createHttpLink({
@@ -60,17 +58,13 @@ function App() {
                         <Route path="/pokemonlist" element={<PokemonList />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>
+                    <footer>
+                        <Footer />
+                    </footer>
                 </Router>
             </ApolloProvider>
-
-
-            <footer>
-                <Footer />
-            </footer>
         </div>
-
-
-    )
+    );
 }
 
 

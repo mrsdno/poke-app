@@ -68,10 +68,29 @@ const Header = () => {
                     )}
                 </nav>
             </div>
+<<<<<<< HEAD
             <br></br>
         </header>
     );
 };
+=======
+            <div className='text-shadow'>
+                <button className='btn-1 marg-5' type="button">
+                    Login
+                </button>
+                <button className='btn-2 marg-5' type="button">
+                    Log Out
+                </button>
+            </div>
+            
+        </div>
+        <br></br>
+    </header>
+    
+
+  )
+}
+>>>>>>> 10d3ea7a6a041fd28ca762a73c1b376645a8bb94
 
 // Export for External
 export default Header

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import '../App.css'
 
 import Auth from '../utils/auth';
 
@@ -41,16 +42,16 @@ const SignUp = () => {
 
     return (
         <main>
-            <div className='card mx-auto'>
+            <div className='SignUp'>
                 <div className='card-body'>
-                    <h3 className='card-title red-text'>
+                    <h3 className='card-title red-text' style={{color:"white"}}>
                         Sign Up!
                     </h3>
                     <form className='login-form' onSubmit={handleFormSubmit}>
 
                         {/* username input */}
                         <input 
-                        className='margin-input'
+                        className='form-1'
                         name='username'
                         type='username'
                         id='user-signup'
@@ -58,10 +59,12 @@ const SignUp = () => {
                         value={formState.username}
                         onChange={handleChange}
                         />
+                        
+                        <br></br>
 
                         {/* Email input */}
                         <input
-                        className='margin-input'
+                        className='form-1'
                         name='email'
                         type='email'
                         id='email-signup'
@@ -70,9 +73,11 @@ const SignUp = () => {
                         onChange={handleChange}
                         />
 
+                        <br></br>
+
                         {/* password input */}
                         <input
-                        className='margin-input'
+                        className='form-1'
                         name='password'
                         type='password'
                         id='password-signup'
@@ -81,7 +86,9 @@ const SignUp = () => {
                         onChange={handleChange}
                         />
 
-                        <button className='btn btn-dark' type='submit'>
+                        <br></br>
+
+                        <button className='btn-3' type='submit'>
                             Submit
                         </button>
 

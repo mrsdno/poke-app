@@ -17,12 +17,14 @@ function Home() {
 
         <div className="text-center container">
 
-            <h1 className="white-text row-align-item-center">
-                Welcome to our Pokemon Team Build Site!
+            <h1 className="white-text row-align-item-center pokemon-heading">
+                Welcome to Pokemon Team Builder!
             </h1>
 
-            <h2 className="black-text row-align-item-center">
-                If you have an account with us please sign in! If you are new please make an account!
+            <h2 className="black-text row-align-item-center pokemon-heading2">
+                If you have an account with us please sign in! 
+                <br></br> 
+                If you are new please make an account!
             </h2>
 
             {loggedIn ? (
