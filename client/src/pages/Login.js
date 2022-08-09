@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import './pages.css';
+import '../App.css'
+import PikaCute from '../assets/pikachu.png'
+import EeveeCute from '../assets/eevee.png'
 
 import Auth from '../utils/auth';
   
 
 const Login = (props) => {
 
-  const [formState, setFormState] = useState({ username: '', password: ''});
+  const [formState, setFormState] = useState({ email: '', password: ''});
   const [login, { error }] = useMutation(LOGIN_USER);
 
   // updates state based on form input changes
@@ -39,66 +43,63 @@ const Login = (props) => {
 
     // clear the values from the form
     setFormState({
-      username: '',
+      email: '',
       password: '',
     });
+
+    // redirect user to team page
+    this.props.history.push('/pokemonteam')
+      .catch((err) => { console.log(err) });
   };
 
   return (
-    <div>
-      <div>
+    <div className='loginStyle'>
+      <div className="container-v">
 
-        <img className="pika-cute" src="https://pixy.org/src/108/1088380.png" alt="pikachu-cute"/> 
+        <img className="pika-cute" src={PikaCute} alt="pikachu-cute"/> 
+     
+        <img className='eevee-cute' src={EeveeCute} alt="pikachu-cute" />
 
+        <div >
 
-        <div className="login card mx-auto login-card"
-        // keep getting error 'Style prop value must be an object'
-        //  style="width: 18rem;"
-         >
+          <h3 className="card-title red-text">Login</h3>
+        
+          <form action="login" className="login-form" onSubmit={handleFormSubmit}>
+            {/* EMAIL Input */}
+            <input 
+            className="form-1"
+            type="email"
+            id="user-login"
+            name="email"
+            placeholder="Your Email"
+            value={formState.email}
+            onChange={handleChange}
+            />
+            <br></br>
 
+            {/* password Input */}
+            <input 
+            className="form-1"
+            type="password"
+            id="password-login"
+            name="password"
+            placeholder="Password"
+            value={formState.password}
+            onChange={handleChange}
+            />
 
-          <div className="card-body">
+            <br></br>
 
-            <h3 className="card-title red-text">Login</h3>
-          
+            <button className="btn-3" type="submit">Login</button>
 
-            <form action="login" className="login-form" onSubmit={handleFormSubmit}>
-              {/* EMAIL Input */}
-              <input 
-              className="margin-input"
-              type="email"
-              id="user-login"
-              name="email"
-              placeholder="Your Email"
-              value={formState.email}
-              onChange={handleChange}
-              />
+          </form>
 
-              {/* password Input */}
-              <input 
-              className="margin-input"
-              type="password"
-              id="password-login"
-              name="password"
-              placeholder="Password"
-              value={formState.password}
-              onChange={handleChange}
-              />
+          {/* Shows error if Login fails */}
+          {error && <div>Login Failed </div>}
 
-
-              <br></br>
-
-              <button className="login-btn btn btn-dark" type="submit">Login</button>
-
-            </form>
-
-            {/* Shows error if Login fails */}
-            {error && <div>Login Failed </div>}
-
-          </div>
         </div>
-      </div>
 
+      </div>
 
 {/*     
       <div class="signup card mx-auto signup-card" 
@@ -107,7 +108,6 @@ const Login = (props) => {
       >
         <div class="card-body ">
           <h3 class="card-title red-text">Sign Up</h3>
-
           <div>
             <form action="signup" className="signup-form">
               <input className="margin-input" type="text" id="username-signup" name="username" placeholder="Username"/>
