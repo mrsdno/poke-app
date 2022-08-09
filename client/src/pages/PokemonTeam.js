@@ -72,7 +72,7 @@ function PokemonTeam() {
                       </p>
                     </div>
                   </div>
-                  <div className="pokemon-card-buttonContainer button">
+                  <div className="pokemon-card button">
                     <button
                       className="btn-2-s delete-pokemon"
                       type="submit"
