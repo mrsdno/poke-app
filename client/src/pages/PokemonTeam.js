@@ -1,17 +1,42 @@
 import React, {useState} from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_TEAM } from '../utils/mutations';
-import { QUERY_ME } from "../utils/queries";
+import { QUERY_ME, QUERY_TEAMS } from "../utils/queries";
 import TeamList from '../components/TeamList'
 import './pages.css';
 
 function PokemonTeam() {
-    const [teamName, setText] = useState("");
-    const [addTeam, { error }] = useMutation(ADD_TEAM);
+  const [teamName, setText] = useState("");
   const { loading, data: userData } = useQuery(QUERY_ME);
-    const teams= userData?.me.teams || []
+  const { loadingTeams, data: teams } = useQuery(QUERY_TEAMS, { variables: { username: userData?.me.username } })
+  const [addTeam, { error }] = useMutation(ADD_TEAM, {
+    update(cache, { data: { addTeam } }) {
+      // could not exist yet, so wrap in a try/catch
+      try {
+        const { me } = cache.readQuery({ query: QUERY_ME } );
 
-  
+        // update team array's cache
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, teams: [...me.teams, addTeam] } },
+        });
+      } catch (e) {
+        console.warn("First interation by user");
+      }
+
+      // update thought array's cache
+      const { teams } = cache.readQuery({
+        query: QUERY_TEAMS,
+        variables: { username: userData?.me.username },
+      });
+      cache.writeQuery({
+        query: QUERY_TEAMS,
+        variables: { username: userData?.me.username },
+        data: { teams: [addTeam, ...teams]},
+      });
+    }
+  })
+
       const handleChange = (event) => {
         if (event.target.value.length <= 280) {
           setText(event.target.value);
@@ -31,8 +56,6 @@ function PokemonTeam() {
       }
     };
   
-  
-  
   return (
     <div className="PokemonTeam">
       <div className="container-v teambox">
@@ -48,11 +71,11 @@ function PokemonTeam() {
           </button>
         </form>
         <div className="container-h ">
-          {loading ? (
+          {loadingTeams ? (
             <div>Loading...</div>
           ) : (
             <TeamList
-              teams={teams}
+              teams={teams.teams}
             />
           )}
         </div>

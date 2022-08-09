@@ -71,7 +71,7 @@ const typeDefs = gql`
             ): Pokemon
         editTeam(
             teamName: String!,
-            isFavorite: Boolean!,
+            isFavorite: Boolean,
             pokemon: PokemonInput!
             ): Team
     }

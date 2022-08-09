@@ -49,7 +49,7 @@ mutation AddTeam($teamName: String!, $isFavorite: Boolean) {
 export const EDIT_TEAM = gql `
   mutation EditTeam(
     $teamName: String!,
-    $isFavorite: Boolean!,
+    $isFavorite: Boolean,
     $pokemon: PokemonInput!
     ) {
       editTeam(
