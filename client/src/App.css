@@ -7,7 +7,7 @@
   --color-primary-t: rgba(255, 205, 5, 0.774);
   --color-secondary: rgb(53,100,174);
   --color-third:rgb(187,26,26);
-  --color-text-1: rgb(0,0,0);
+  --color-text-1: white;
   --color-text-2: rgb(132,14,18);
 }
 *{
@@ -31,7 +31,7 @@ body{
 /*container horizontal */
 .container-h{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 /*=======margins=========*/
@@ -59,6 +59,7 @@ body{
 }
 .btn-1:hover{
   background-color: var(--color-primary-t);
+  color: black;
 }
 /*btn 1 small*/
 .btn-1-s{
@@ -73,6 +74,7 @@ body{
 }
 .btn-1-s:hover{
   background-color: var(--color-primary-t);
+  color:black;
 }
 
 /* button styles 2*/
@@ -88,6 +90,7 @@ body{
 }
 .btn-2:hover{
   background-color: var(--color-third) ;
+  color:black;
 }
 /*btn 1 small*/
 .btn-2-s{
@@ -99,6 +102,10 @@ body{
   border-radius: 5px;
   font-size: medium;
   cursor: pointer;
+}
+
+.btn-2-s:hover{
+  color:black;
 }
 
 /*button style 3*/

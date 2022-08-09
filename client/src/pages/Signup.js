@@ -44,7 +44,7 @@ const SignUp = () => {
         <main>
             <div className='SignUp'>
                 <div className='card-body'>
-                    <h3 className='card-title red-text'>
+                    <h3 className='card-title red-text' style={{color:"white"}}>
                         Sign Up!
                     </h3>
                     <form className='login-form' onSubmit={handleFormSubmit}>

@@ -59,7 +59,7 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addTeam(teamName: String!, isFavorite: Boolean!): Team
+        addTeam(teamName: String!, isFavorite: Boolean): Team
         addPokemon(
             teamId: String!,
             name: String!,
@@ -71,7 +71,7 @@ const typeDefs = gql`
             ): Pokemon
         editTeam(
             teamName: String!,
-            isFavorite: Boolean!,
+            isFavorite: Boolean,
             pokemon: PokemonInput!
             ): Team
     }
