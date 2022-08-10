@@ -1,16 +1,9 @@
 {
-<<<<<<< HEAD
-  "name": "poke-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-=======
     "name": "poke-app",
     "version": "0.1.0",
     "private": true,
     "proxy": "http://localhost:3001/",
     "dependencies": {
->>>>>>> 10d3ea7a6a041fd28ca762a73c1b376645a8bb94
     "@apollo/client": "^3.6.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
