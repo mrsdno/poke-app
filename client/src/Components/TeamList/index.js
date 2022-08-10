@@ -13,6 +13,7 @@ const TeamList = ({ teams }) => {
 
   return (
     <div>
+      <h1>My Teams</h1>
       {/* map over the team array that was passed from PokemonTeam page */}
       {teams &&
         teams.map((team) => (

@@ -4,6 +4,7 @@ import { ADD_TEAM } from '../utils/mutations';
 import { QUERY_ME, QUERY_TEAMS } from "../utils/queries";
 import TeamList from '../components/TeamList'
 import './pages.css';
+import { Link } from 'react-router-dom';
 
 function PokemonTeam() {
   const [teamName, setText] = useState("");
@@ -74,6 +75,9 @@ function PokemonTeam() {
           <button className="btn-1" type="submit" id="add-team">
             Add Team
           </button>
+          <Link to="/">
+            <button className='btn-3'>All other Teams</button>
+          </Link>
         </form>
         <div className="container-h ">
           {teams && (

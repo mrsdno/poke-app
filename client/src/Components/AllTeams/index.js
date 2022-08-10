@@ -12,7 +12,7 @@ const AllTeams = ({ teams }) => {
 
     return(
         <div>
-            <h1>Check out all the Teams</h1>
+            <h1>Check out all the teams our users have made!</h1>
             { teams && teams.map((team) => (
                 <div key={team.id} className="pokemon">
                     <h2 className="team-name">{team.teamName}</h2>

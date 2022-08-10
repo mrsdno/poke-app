@@ -1,6 +1,7 @@
 import React from 'react'
 import '../App.js'
 import "./pages.css"
+import { Link } from 'react-router-dom';
 
 // importing pages
 import Login from './Login';
@@ -10,6 +11,7 @@ import AllTeams from '../components/AllTeams/index.js';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_TEAMS } from "../utils/queries";
+import TeamList from '../components/TeamList/index.js';
 
 function Home() {
 
@@ -34,9 +36,14 @@ function Home() {
             </h2>
 
             {loggedIn ? (
-                <Login />
+                // <Login />
+                <Link to="/pokemonteam">
+                    <button className='btn-3'>My Teams</button>
+                </Link>
             ) : (
-                <Signup />
+                <><Login />
+                <p>or..</p>
+                <Signup /></>
             )}
 
             {loading ? (
