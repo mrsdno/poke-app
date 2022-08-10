@@ -2,8 +2,9 @@ import React from "react";
 
 import "./App.css"
 
-import  Header from "./Components/Header"
-import  Footer  from './Components/Footer'
+import  Header  from './components/Header'
+import  Footer  from './components/Footer'
+
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -30,12 +31,12 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
     const token = localStorage.getItem('id_token');
     return {
-      headers: {
-        ...headers,
-        authorization: token ? `Bearer ${token}` : '',
-      },
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : '',
+        },
     };
-  });
+});
 
 const client = new ApolloClient({
     link: authLink.concat(httpLink),
@@ -49,25 +50,29 @@ function App() {
             <header>
                 <Header/>
             </header>
+            
             <ApolloProvider client={client}>
                 <Router>
+                    <header>
+                        <Header />
+                    </header>
                     <Routes>
-                        <Route path="/" element={<Home/>} />
-                        <Route path="/login" element={<Login/>} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/login" element={<Login />} />
                         <Route path='/signup' element={<Signup />} />
-                        <Route path="/pokemonteam" element={<PokemonTeam/>} />
-                        <Route path="/pokemonlist" element={<PokemonList/>} />
-                        <Route path="*" element={<ErrorPage/>}/>
+                        <Route path="/pokemonteam" element={<PokemonTeam />} />
+                        <Route path="/pokemonlist" element={<PokemonList />} />
+                        <Route path="*" element={<ErrorPage />} />
                     </Routes>
                 </Router>
             </ApolloProvider>
 
             <footer>
-                <Footer/>
+                <Footer />
             </footer>
         </div>
 
-        
+
     )
 }
 
