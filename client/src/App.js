@@ -56,7 +56,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path='/signup' element={<Signup />} />
-                        <Route path="/pokemonteam" element={<PokemonTeam />} />
+                        <Route path="/pokemonteam" forceRefresh={true} element={<PokemonTeam />} />
                         <Route path="/pokemonlist" element={<PokemonList />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>

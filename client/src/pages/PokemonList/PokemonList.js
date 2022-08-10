@@ -1,21 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { fetchPokeApi } from "../../utils/PokeApi";
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { ADD_POKEMON } from "../../utils/mutations";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
+import { QUERY_ME, QUERY_TEAMS } from "../../utils/queries";
 
-function PokemonList() {
+
+
+
+function PokemonList(props) {
   const [pokemonList, setPokemonList] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
   // query for searching
   const [queryName, setQueryName] = useState("");
   const [queryColor, setQueryColor] = useState("");
+  const { loading, data: userData } = useQuery(QUERY_ME);
+  const { loadingTeams, data: teams } = useQuery(QUERY_TEAMS, {
+    variables: { username: userData?.me.username },
+  });
+  // mutation to add pokemon
+  const [addPokemon, { error }] = useMutation(ADD_POKEMON, {
+    update(cache, { data: { addPokemon } }) {
+      // could not exist yet, so wrap in a try/catch
+      try {
+        const { me } = cache.readQuery({ query: QUERY_ME });
 
-  // mutation to add to team
-  const [addPokemon, { error }] = useMutation(ADD_POKEMON);
+        // update team array's cache
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, teams: [...me.teams, addPokemon] } },
+        });
+      } catch (e) {
+        console.warn("First interation by user");
+      }
+
+      // update thought array's cache
+      const { teams } = cache.readQuery({
+        query: QUERY_TEAMS,
+        variables: { username: userData?.me.username },
+      });
+      cache.writeQuery({
+        query: QUERY_TEAMS,
+        variables: { username: userData?.me.username },
+        data: { teams: [ ...teams] },
+      });
+    },
+  });
 
   const location = useLocation();
   const { teamIdArray } = location.state;
@@ -64,7 +97,7 @@ function PokemonList() {
     } catch (e) {
       console.log(e);
     }
-    window.location.assign("/pokemonteam");
+
   }
 
   return (
@@ -128,23 +161,29 @@ function PokemonList() {
                         <li key={types}>{types}</li>
                       ))}
                     </ul>
-                    <p className="description" key={pokemon.flavorText}>{pokemon.flavorText}</p>
+                    <p className="description" key={pokemon.flavorText}>
+                      {pokemon.flavorText}
+                    </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => {
-                    handleAddPokemon(
-                      pokemon.name,
-                      pokemon.height,
-                      pokemon.weight,
-                      pokemon.flavorText,
-                      pokemon.pokeTypes,
-                      pokemon.image
-                    );
-                  }}
-                >
-                  Add {pokemon.name} to Team
-                </button>
+                  <Link
+                    to="/pokemonteam"
+                  >
+                    <button
+                      onClick={() => {
+                        handleAddPokemon(
+                          pokemon.name,
+                          pokemon.height,
+                          pokemon.weight,
+                          pokemon.flavorText,
+                          pokemon.pokeTypes,
+                          pokemon.image
+                        );
+                      }}
+                    >
+                      Add {pokemon.name} to Team
+                    </button>
+                  </Link>
               </div>
             ))}
       </div>
