@@ -64,7 +64,6 @@ function PokemonList() {
     } catch (e) {
       console.log(e);
     }
-    window.location.assign("/pokemonteam");
   }
 
   return (
@@ -128,23 +127,27 @@ function PokemonList() {
                         <li key={types}>{types}</li>
                       ))}
                     </ul>
-                    <p className="description" key={pokemon.flavorText}>{pokemon.flavorText}</p>
+                    <p className="description" key={pokemon.flavorText}>
+                      {pokemon.flavorText}
+                    </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => {
-                    handleAddPokemon(
-                      pokemon.name,
-                      pokemon.height,
-                      pokemon.weight,
-                      pokemon.flavorText,
-                      pokemon.pokeTypes,
-                      pokemon.image
-                    );
-                  }}
-                >
-                  Add {pokemon.name} to Team
-                </button>
+                <Link to="/pokemonteam">
+                  <button
+                    onClick={() => {
+                      handleAddPokemon(
+                        pokemon.name,
+                        pokemon.height,
+                        pokemon.weight,
+                        pokemon.flavorText,
+                        pokemon.pokeTypes,
+                        pokemon.image
+                      );
+                    }}
+                  >
+                    Add {pokemon.name} to Team
+                  </button>
+                </Link>
               </div>
             ))}
       </div>

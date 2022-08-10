@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_TEAM } from '../utils/mutations';
 import { QUERY_ME, QUERY_TEAMS } from "../utils/queries";
 import TeamList from '../Components/TeamList'
 import './pages.css';
 import { Link } from 'react-router-dom';
+import { selectionSetMatchesResult } from '@apollo/client/cache/inmemory/helpers';
 
 
 function PokemonTeam() {
@@ -12,6 +13,8 @@ function PokemonTeam() {
   const [errorMessage, setErrorMessage] = useState("");
   const { loading, data: userData } = useQuery(QUERY_ME);
   const { loadingTeams, data: teams } = useQuery(QUERY_TEAMS, { variables: { username: userData?.me.username } })
+
+
   const [addTeam, { error }] = useMutation(ADD_TEAM, {
     update(cache, { data: { addTeam } }) {
       // could not exist yet, so wrap in a try/catch
@@ -27,7 +30,7 @@ function PokemonTeam() {
         console.warn("First interation by user");
       }
 
-      // update thought array's cache
+      // update teams array's cache
       const { teams } = cache.readQuery({
         query: QUERY_TEAMS,
         variables: { username: userData?.me.username },
@@ -62,6 +65,10 @@ function PokemonTeam() {
       }
   };
   
+  useEffect(() => {
+  
+})
+
   if (loading) {
     return <div>Loading...</div>;
   }

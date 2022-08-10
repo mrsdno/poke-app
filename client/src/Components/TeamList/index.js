@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import './style.css'
 
 const TeamList = ({ teams }) => {
-    
+
+  
   if (!teams.length) {
     return <p className="no-teams">No teams yet!</p>;
   }

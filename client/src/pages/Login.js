@@ -5,7 +5,7 @@ import './pages.css';
 import '../App.css'
 import PikaCute from '../assets/pikachu.png'
 import EeveeCute from '../assets/eevee.png'
-
+import { Link } from "react-router-dom";
 import Auth from '../utils/auth';
   
 
@@ -47,26 +47,24 @@ const Login = (props) => {
       password: '',
     });
 
-    // redirect user to team page
-    this.props.history.push('/pokemonteam')
-      .catch((err) => { console.log(err) });
   };
 
   return (
-    <div className='loginStyle'>
+    <div className="loginStyle">
       <div className="container-v">
+        <div className="container-h">
+          <img className="pika-cute" src={PikaCute} alt="pikachu-cute" />
 
-        <div className='container-h'>
-          <img className="pika-cute" src={PikaCute} alt="pikachu-cute"/> 
-
-          <div className='container-v'>
-
+          <div className="container-v">
             <h3 className="card-title red-text">Login</h3>
-        
-            <form action="login" className="login-form" onSubmit={handleFormSubmit}>
 
+            <form
+              action="login"
+              className="login-form"
+              onSubmit={handleFormSubmit}
+            >
               {/* EMAIL Input */}
-              <input 
+              <input
                 className="form-1"
                 type="email"
                 id="user-login"
@@ -76,10 +74,10 @@ const Login = (props) => {
                 onChange={handleChange}
               />
 
-                <br></br>
+              <br></br>
 
               {/* password Input */}
-              <input 
+              <input
                 className="form-1"
                 type="password"
                 id="password-login"
@@ -90,31 +88,22 @@ const Login = (props) => {
               />
 
               <br></br>
-
-              <button className="btn-3" type="submit">Login</button>
-
+              <Link to="/pokemonteam">
+                <button className="btn-3" type="submit">
+                  Login
+                </button>
+              </Link>
             </form>
 
-            
-            
             {/* Shows error if Login fails */}
             {error && <div>Login Failed </div>}
-
           </div>
 
-          <img className='eevee-cute' src={EeveeCute} alt="pikachu-cute" />
-
+          <img className="eevee-cute" src={EeveeCute} alt="pikachu-cute" />
         </div>
-
-        
-     
-        
-
-        
-
       </div>
 
-{/*     
+      {/*     
       <div class="signup card mx-auto signup-card" 
       // keep getting error 'Style prop value must be an object'
       // style="width: 18rem;"
@@ -131,9 +120,8 @@ const Login = (props) => {
           </div>
         </div>
       </div> */}
-      
     </div>
-  )
+  );
 }
 
 export default Login;
