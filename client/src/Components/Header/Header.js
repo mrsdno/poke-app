@@ -23,16 +23,18 @@ const Header = () => {
                 <nav className="justify-content-end">
                     {Auth.loggedIn() ? (
                         <>
-                            <Link to="/pokemonteam">Profile</Link>
+                            <Link to="/pokemonteam">
+                                <button className='btn-1'>My Profile</button>
+                            </Link>
                             <a href="/" onClick={logout}>
-                                Logout
+                                <button className='btn-2'>Logout</button>
                             </a>
                         </>
                     ) : (
                         <>
-                            <button className="m-2"><Link to="/login">Login</Link></button>
+                            <Link to="/login"><button className="btn-1">Login</button></Link>
 
-                            <Link to="/signup" className="m-2"><button>Sign-up</button></Link>
+                            <Link to="/signup"><button className='btn-1'>Sign-up</button></Link>
                         </>
                     )}
                 </nav>

@@ -4,9 +4,12 @@ import { ADD_TEAM } from '../utils/mutations';
 import { QUERY_ME, QUERY_TEAMS } from "../utils/queries";
 import TeamList from '../components/TeamList'
 import './pages.css';
+import { Link } from 'react-router-dom';
+
 
 function PokemonTeam() {
   const [teamName, setText] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const { loading, data: userData } = useQuery(QUERY_ME);
   const { loadingTeams, data: teams } = useQuery(QUERY_TEAMS, { variables: { username: userData?.me.username } })
   const [addTeam, { error }] = useMutation(ADD_TEAM, {
@@ -45,8 +48,11 @@ function PokemonTeam() {
   
   const handleAddTeam = async (event) => {
     event.preventDefault();
-    console.log(teams);
+    // console.log(teams);
 
+    if(!teamName){
+      setErrorMessage('Please enter a team name!')     
+    }
       try {
         const { data } = await addTeam({
           variables: { teamName, userData, isFavorite: false },
@@ -67,14 +73,28 @@ function PokemonTeam() {
           <input
             id="team-name"
             value={teamName}
-            placeholder="team name"
+            placeholder="Name your team!"
             onChange={handleChange}
             className="input-bar"
           ></input>
           <button className="btn-1" type="submit" id="add-team">
             Add Team
           </button>
+          <Link to="/">
+            <button className='btn-3'>All other Teams</button>
+          </Link>
         </form>
+
+        {/* error message if teamName is empty */}
+        {errorMessage && (
+          <div>
+            <p>
+              {errorMessage}
+            </p>
+          </div>
+          )}
+        
+
         <div className="container-h ">
           {teams && (
             <TeamList
