@@ -3,7 +3,16 @@ import '../components.css'
 import '../../App.css'
 import pokemonLogo from '../../assets/International_Pokémon_logo.svg.png'
 
+import Auth from '../../utils/auth';
+
 function Header() {
+
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    };
+
+
   return (
     <header className='bg-b'>
         <div className="container-v bg-b">
@@ -14,7 +23,7 @@ function Header() {
                 <button className='btn-1 marg-5' type="button">
                     Login
                 </button>
-                <button className='btn-2 marg-5' type="button">
+                <button className='btn-2 marg-5' type="button" onClick={logout}>
                     Log Out
                 </button>
             </div>
