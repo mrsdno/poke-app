@@ -57,10 +57,12 @@ body{
   font-size: x-large;
   text-shadow: 1.2px 1.2px #1d1d1b;
   cursor: pointer;
+  box-shadow: 2px 2px 3px rgba(255, 234, 49, 0.7);
 }
 .btn-1:hover{
   background-color: var(--color-primary-t);
   color: black;
+  box-shadow: 2px 2px 3px rgba(53,100,174, 0.8);
 }
 /*btn 1 small*/
 .btn-1-s{
@@ -88,10 +90,12 @@ body{
   font-size: x-large;
   text-shadow: 1.2px 1.2px #1d1d1b;
   cursor: pointer;
+  box-shadow: 2px 2px 3px rgba(255, 234, 49, 0.7);
 }
 .btn-2:hover{
   background-color: var(--color-third) ;
   color:black;
+  box-shadow: 2px 2px 3px rgba(53,100,174, 0.8);
 }
 /*btn 1 small*/
 .btn-2-s{
@@ -120,6 +124,7 @@ body{
   font-size: larger;
   cursor: pointer;
   text-shadow: 0px 0px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 .btn-3:hover{
   background-color: var(--color-secondary);

@@ -25,6 +25,8 @@
 
 .pokemon-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .each-pokemon {
@@ -34,6 +36,7 @@
     color: white;
     padding: 10px;
     margin: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .choose-pokemon {
@@ -42,6 +45,12 @@
     padding: 10px;
     width: 60%;
     margin: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.choose-pokemon:hover {
+    box-shadow: 5px 5px 5px rgba(45, 46, 1, 0.5);
+    background-color: #ff2626;
 }
 
 .choose-pokemon a {
@@ -51,4 +60,8 @@
 
 .choose-pokemon p {
     color: white;
+}
+
+.team-image {
+    filter: drop-shadow(5px 5px 5px rgba(255, 255, 255, 0.3));
 }
