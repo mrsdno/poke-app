@@ -6,8 +6,10 @@ import TeamList from '../components/TeamList'
 import './pages.css';
 import { Link } from 'react-router-dom';
 
+
 function PokemonTeam() {
   const [teamName, setText] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const { loading, data: userData } = useQuery(QUERY_ME);
   const { loadingTeams, data: teams } = useQuery(QUERY_TEAMS, { variables: { username: userData?.me.username } })
   const [addTeam, { error }] = useMutation(ADD_TEAM, {
@@ -49,7 +51,7 @@ function PokemonTeam() {
     // console.log(teams);
 
     if(!teamName){
-      window.alert("Make sure to name your team!")      
+      setErrorMessage('Please enter a team name!')     
     }
       try {
         const { data } = await addTeam({
@@ -82,6 +84,17 @@ function PokemonTeam() {
             <button className='btn-3'>All other Teams</button>
           </Link>
         </form>
+
+        {/* error message if teamName is empty */}
+        {errorMessage && (
+          <div>
+            <p>
+              {errorMessage}
+            </p>
+          </div>
+          )}
+        
+
         <div className="container-h ">
           {teams && (
             <TeamList
