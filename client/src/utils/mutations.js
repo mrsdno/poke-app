@@ -68,7 +68,7 @@ export const EDIT_TEAM = gql `
             name
             height
             weight
-            typeDefsimage
+            image
             description
           }
         }
@@ -90,6 +90,16 @@ export const EDIT_TEAM = gql `
 //   }
 // }
 
+
+export const DELETE_TEAM = gql`
+  mutation DeleteTeam(
+    $teamId: String!
+  ){
+    deleteTeam(
+      teamId: $teamId
+    )
+  }
+`;
 
 export const ADD_POKEMON = gql`
   mutation AddPokemon(

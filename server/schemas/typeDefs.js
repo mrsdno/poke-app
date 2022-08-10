@@ -74,6 +74,9 @@ const typeDefs = gql`
             isFavorite: Boolean,
             pokemon: PokemonInput!
             ): Team
+        deleteTeam(
+            _id: String!            
+        ): Team
     }
 `;
 
