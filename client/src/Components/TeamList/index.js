@@ -9,6 +9,15 @@ const ThoughtList = ({ teams }) => {
     let pokemonList = teams.pokemon || []
 
     console.log(teams);
+
+    function handleChoosePokemon(team_id) {
+        <Link to={{
+            pathname: '/pokemonlist',
+            state: team_id
+        }}>
+            </Link>
+        {/* window.location.assign(`/pokemonlist/${team_id}`); */}
+    }
   return (
     <div>
       {teams &&
@@ -27,9 +36,12 @@ const ThoughtList = ({ teams }) => {
                     alt="Card1"
                   ></img>
                   <div className="card-body">
-                    <h5 className="card-title text-uppercase">{pokemon.name}</h5>
+                    <h5 className="card-title text-uppercase">
+                      {pokemon.name}
+                    </h5>
                     <p className="card-text">
-                              Height: {pokemon.height} decimetres Weight: {pokemon.weight} hectograms Type: {pokemon.type}
+                      Height: {pokemon.height} decimetres Weight:{" "}
+                      {pokemon.weight} hectograms Type: {pokemon.type}
                     </p>
                   </div>
                   <button
@@ -44,16 +56,13 @@ const ThoughtList = ({ teams }) => {
                 </div>
               ))}
 
-            <button
-              className="btn-1-s  add-pokemon"
-              type="submit"
-              id="add-pokemon"
-              onClick={() => {
-                window.location.assign("/pokemonlist");
-              }}
+                <Link
+                    to={"/pokemonlist"}
+                state = { { teamIdArray: team._id } }
+              
             >
-              Choose your pokemon
-            </button>
+              Choose Your Pokmon
+            </Link>
           </div>
         ))}
     </div>
