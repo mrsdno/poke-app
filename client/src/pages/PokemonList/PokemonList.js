@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { fetchPokeApi } from "../utils/PokeApi";
+import { fetchPokeApi } from "../../utils/PokeApi";
 import { useMutation } from "@apollo/client";
-import {ADD_POKEMON} from "../utils/mutations"
-
+import { ADD_POKEMON } from "../../utils/mutations";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 function PokemonList() {
   const [pokemonList, setPokemonList] = useState("");
@@ -14,6 +16,11 @@ function PokemonList() {
 
   // mutation to add to team
   const [addPokemon, { error }] = useMutation(ADD_POKEMON);
+
+  const location = useLocation();
+  const { teamIdArray } = location.state;
+
+  const teamId = JSON.stringify(teamIdArray).replace(/['"]+/g, "");
 
   // do the pokemon api calls and then display them once loaded
   async function handleGetPokemon() {
@@ -34,33 +41,37 @@ function PokemonList() {
     );
   }
 
-  async function handleAddPokemon(event, name, height, weight, description, type, image) {
-    const addedPokemon = {
-      name: name,
-      height: height,
-      weight: weight,
-      description: description, 
-      type: type,
-      image: image
-    }
+  async function handleAddPokemon(
+    name,
+    height,
+    weight,
+    description,
+    type,
+    image
+  ) {
     try {
       const { data } = await addPokemon({
-        variables: { addedPokemon },
+        variables: {
+          teamId: teamId,
+          name: name,
+          height: `"${height}"`,
+          weight: `"${weight}"`,
+          description: description,
+          image: image,
+          type: `"${type}"`,
+        },
       });
-     } catch (e) {
-        console.log(e);
-      }
-
-    console.log(addedPokemon);
+    } catch (e) {
+      console.log(e);
+    }
+    window.location.assign("/pokemonteam");
   }
 
-
-
   return (
-    <div class="pokemon-list">
+    <div className="pokemon-list">
       <div>
         <input
-          placeholder="Enter Post Title"
+          placeholder="Search by name..."
           onChange={(event) => setQueryName(event.target.value)}
         />
         <select
@@ -104,19 +115,22 @@ function PokemonList() {
             })
             .map((pokemon) => (
               <div className="pokemonCard" key={pokemon.id}>
-                <h1>{pokemon.name}</h1>
-                <img src={pokemon.image} />
-                <p>height: {pokemon.height}</p>
-                <p>weight: {pokemon.weight}</p>
-                <ul>
-                  {" "}
-                  Types:
-                  {pokemon?.types?.map((types) => (
-                    <li key={types.slot}>{types.type.name}</li>
-                  ))}
-                </ul>
-                <p>{pokemon.flavorText}</p>
-                <p>color: {pokemon.color}</p>
+                <h1 key={pokemon.name}>{pokemon.name}</h1>
+                <div className="card-wrapper">
+                  <img key={pokemon.img} src={pokemon.image} />
+                  <div className="text-wrapper">
+                    <p key={pokemon.height}>Height: {pokemon.height}</p>
+                    <p key={pokemon.weight}>Weight: {pokemon.weight}</p>
+                    <p key={pokemon.color}>Color: {pokemon.color}</p>
+                    <ul>
+                      Types:
+                      {pokemon?.types?.map((types) => (
+                        <li key={types.slot}>{types.type.name}</li>
+                      ))}
+                    </ul>
+                    <p className="description" key={pokemon.flavorText}>{pokemon.flavorText}</p>
+                  </div>
+                </div>
                 <button
                   onClick={() => {
                     handleAddPokemon(
@@ -129,7 +143,7 @@ function PokemonList() {
                     );
                   }}
                 >
-                  Add Pokemon to Team
+                  Add {pokemon.name} to Team
                 </button>
               </div>
             ))}
@@ -138,7 +152,4 @@ function PokemonList() {
   );
 }
 
-
-
-  
 export default PokemonList;

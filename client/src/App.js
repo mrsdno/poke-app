@@ -2,14 +2,14 @@ import React from "react";
 
 import "./App.css"
 
-import  Header  from './components/Header'
-import  Footer  from './components/Footer'
+import  Header  from './components/Header/Header'
+import  Footer  from './components/Footer/Footer'
 
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
-import PokemonList from "./pages/PokemonList";
+import PokemonList from "./pages/PokemonList/PokemonList";
 import PokemonTeam from "./pages/PokemonTeam";
 import ErrorPage from "./pages/ErrorPage";
 
