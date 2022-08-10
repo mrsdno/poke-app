@@ -18,6 +18,20 @@ const TeamList = ({ teams }) => {
             </Link>
         {/* window.location.assign(`/pokemonlist/${team_id}`); */}
     }
+    // function chooseYourPokemon() {
+    //     if (teams.length < 6) {
+    //         return (
+    //             <Link to={"/pokemonlist"} state={{ teamIdArray: team._id }}>
+    //                 Choose Your Pokmon
+    //             </Link>
+    //         );
+    //     } else {
+    //         return (
+    //             <div>Sorry, only 6 pokemon per team!</div>
+    //         )
+    //     }
+    // }
+
   return (
     <div>
       {teams &&
@@ -56,13 +70,11 @@ const TeamList = ({ teams }) => {
                 </div>
               ))}
 
-                <Link
-                    to={"/pokemonlist"}
-                state = { { teamIdArray: team._id } }
-              
-            >
-              Choose Your Pokmon
-            </Link>
+                
+                {team.pokemon.length < 6 ? <Link to={"/pokemonlist"} state={{ teamIdArray: team._id }}>
+                    Choose Your Pokmon
+                </Link> : <div>Sorry, only 6 pokemon per team!</div>}
+
           </div>
         ))}
     </div>
