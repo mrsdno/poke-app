@@ -2,8 +2,8 @@ import React from "react";
 
 import "./App.css"
 
-import  Header  from './components/Header/Header'
-import  Footer  from './components/Footer/Footer'
+import Header from "./Components/Header/index.js";
+import Footer from "./Components/Footer/index.js";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
