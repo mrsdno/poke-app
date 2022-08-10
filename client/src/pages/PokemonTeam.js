@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_TEAM } from '../utils/mutations';
 import { QUERY_ME, QUERY_TEAMS } from "../utils/queries";
