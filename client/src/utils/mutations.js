@@ -68,7 +68,7 @@ export const EDIT_TEAM = gql `
             name
             height
             weight
-            typeDefsimage
+            image
             description
           }
         }

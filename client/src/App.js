@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css"
 
+
 import  Header  from './Components/Header/Header'
 import  Footer  from './Components/Footer/Footer'
+
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -54,7 +56,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path='/signup' element={<Signup />} />
-                        <Route path="/pokemonteam" element={<PokemonTeam />} />
+                        <Route path="/pokemonteam" forceRefresh={true} element={<PokemonTeam />} />
                         <Route path="/pokemonlist" element={<PokemonList />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>

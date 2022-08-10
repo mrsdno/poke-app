@@ -41,7 +41,7 @@ class AuthService {
     localStorage.setItem("id_token", idToken);
 
     // redirect user to pokemon team page
-    window.location.assign("/pokemonteam");
+    window.location.assign("/");
 
   }
 

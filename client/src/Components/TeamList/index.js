@@ -5,6 +5,10 @@ import { useQuery, useMutation } from '@apollo/client'
 import { DELETE_TEAM } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 
+import { useQuery, useMutation } from '@apollo/client'
+import { DELETE_TEAM } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
+
 import './style.css'
 
 const TeamList = ({ teams }) => {
@@ -67,23 +71,28 @@ const TeamList = ({ teams }) => {
                         Type: {pokemon.type && pokemon.type.map((type) => <p key={type}>{type}</p>)}
                       </p>
                     </div>
-                    {/* <button
-                    className="btn-2-s delete-pokemon"
-                    type="submit"
-                    id="delete-pokemon"
-                    data-id=""
-                    onClick={() => console.log(team._id)}
-                  >
-                    Delete Pokemon
-                  </button> */}
                   </div>
                 ))}
             </div>
             <div className="choose-pokemon">
               {team.pokemon.length < 6 ? (
+                // <>
                 <Link to={"/pokemonlist"} state={{ teamIdArray: team._id }}>
                   <button>Choose Your Pokémon</button>
                 </Link>
+
+              //   button used to delete Team
+              //   <button
+              //   className="btn-2-s delete-pokemon"
+              //   type="submit"
+              //   id="delete-team"
+              //   data-id={team._id}
+              //   onClick={() => handleDeleteTeam()}
+              // >
+              //   Delete Team
+              // </button>
+              // </>
+              
               ) : (
                 <p>❌ Six Pokemon Max Per Team</p>
               )} <button
