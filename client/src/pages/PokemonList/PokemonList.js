@@ -132,7 +132,7 @@ function PokemonList(props) {
               if (queryName === "") {
                 return pokemon;
               } else if (
-                pokemon.name.toLowerCase().includes(queryName.toLowerCase())
+                pokemon.name.toUpperCase().includes(queryName.toUpperCase())
               ) {
                 return pokemon;
               }
@@ -141,7 +141,7 @@ function PokemonList(props) {
               if (queryColor === "") {
                 return pokemon;
               } else if (
-                pokemon.color.toLowerCase().includes(queryColor.toLowerCase())
+                pokemon.color.toUpperCase().includes(queryColor.toUpperCase())
               ) {
                 return pokemon;
               }
@@ -152,13 +152,13 @@ function PokemonList(props) {
                 <div className="card-wrapper">
                   <img key={pokemon.img} src={pokemon.image} />
                   <div className="text-wrapper">
-                    <p key={pokemon.height}>Height: {pokemon.height}</p>
-                    <p key={pokemon.weight}>Weight: {pokemon.weight}</p>
-                    <p key={pokemon.color}>Color: {pokemon.color}</p>
-                    <ul>
-                      Types:
+                    <p key={pokemon.height}>Height: {pokemon.height} inches</p>
+                    <p key={pokemon.weight}>Weight: {pokemon.weight} lbs</p>
+                    <p key={pokemon.color}>Color: {pokemon.color.charAt(0).toUpperCase() + pokemon.color.slice(1)}</p>
+                    <p style={{display: "flex",justifyContent: "space-between"}}>
+                      Types: 
                       {pokemon?.pokeTypes?.map((types) => (
-                        <li key={types}>{types}</li>
+                        <p key={types} style={{padding: "0px 2px"}}>{types.charAt(0).toUpperCase() + types.slice(1)}</p>
                       ))}
                     </ul>
                     <p className="description" key={pokemon.flavorText}>
