@@ -56,48 +56,61 @@ const Login = (props) => {
     <div className='loginStyle'>
       <div className="container-v">
 
-        <img className="pika-cute" src={PikaCute} alt="pikachu-cute"/> 
-     
-        <img className='eevee-cute' src={EeveeCute} alt="pikachu-cute" />
+        <div className='container-h'>
+          <img className="pika-cute" src={PikaCute} alt="pikachu-cute"/> 
 
-        <div >
+          <div className='container-v'>
 
-          <h3 className="card-title red-text">Login</h3>
+            <h3 className="card-title red-text">Login</h3>
         
-          <form action="login" className="login-form" onSubmit={handleFormSubmit}>
-            {/* EMAIL Input */}
-            <input 
-            className="form-1"
-            type="email"
-            id="user-login"
-            name="email"
-            placeholder="Your Email"
-            value={formState.email}
-            onChange={handleChange}
-            />
-            <br></br>
+            <form action="login" className="login-form" onSubmit={handleFormSubmit}>
 
-            {/* password Input */}
-            <input 
-            className="form-1"
-            type="password"
-            id="password-login"
-            name="password"
-            placeholder="Password"
-            value={formState.password}
-            onChange={handleChange}
-            />
+              {/* EMAIL Input */}
+              <input 
+                className="form-1"
+                type="email"
+                id="user-login"
+                name="email"
+                placeholder="Your Email"
+                value={formState.email}
+                onChange={handleChange}
+              />
 
-            <br></br>
+                <br></br>
 
-            <button className="btn-3" type="submit">Login</button>
+              {/* password Input */}
+              <input 
+                className="form-1"
+                type="password"
+                id="password-login"
+                name="password"
+                placeholder="Password"
+                value={formState.password}
+                onChange={handleChange}
+              />
 
-          </form>
+              <br></br>
 
-          {/* Shows error if Login fails */}
-          {error && <div>Login Failed </div>}
+              <button className="btn-3" type="submit">Login</button>
+
+            </form>
+
+            
+            
+            {/* Shows error if Login fails */}
+            {error && <div>Login Failed </div>}
+
+          </div>
+
+          <img className='eevee-cute' src={EeveeCute} alt="pikachu-cute" />
 
         </div>
+
+        
+     
+        
+
+        
 
       </div>
 
