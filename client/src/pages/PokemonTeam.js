@@ -46,8 +46,11 @@ function PokemonTeam() {
   
   const handleAddTeam = async (event) => {
     event.preventDefault();
-    console.log(teams);
+    // console.log(teams);
 
+    if(!teamName){
+      window.alert("Make sure to name your team!")      
+    }
       try {
         const { data } = await addTeam({
           variables: { teamName, userData, isFavorite: false },

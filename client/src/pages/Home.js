@@ -11,7 +11,6 @@ import AllTeams from '../components/AllTeams/index.js';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_TEAMS } from "../utils/queries";
-import TeamList from '../components/TeamList/index.js';
 
 function Home() {
 
