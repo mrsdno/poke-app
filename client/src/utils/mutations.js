@@ -98,7 +98,7 @@ export const ADD_POKEMON = gql`
     $height: String!
     $weight: String!
     $description: String!
-    $type: [String!]
+    $type: [String]!
     $image: String!
   ) {
     addPokemon(
