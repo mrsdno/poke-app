@@ -13,12 +13,12 @@ const pokemonSchema = new Schema (
         },
 
         height: {
-            type: String,
+            type: Number,
             required: true
         },
 
         weight: {
-            type: String,
+            type: Number,
             required: true
         },
 

@@ -54,17 +54,17 @@ function PokemonList() {
         variables: {
           teamId: teamId,
           name: name,
-          height: `"${height}"`,
-          weight: `"${weight}"`,
+          height: height,
+          weight: weight,
           description: description,
           image: image,
-          type: `"${type}"`,
+          type: type,
         },
       });
     } catch (e) {
       console.log(e);
     }
-    window.location.assign("/pokemonteam");
+    // window.location.assign("/pokemonteam");
   }
 
   return (
@@ -124,8 +124,8 @@ function PokemonList() {
                     <p key={pokemon.color}>Color: {pokemon.color}</p>
                     <ul>
                       Types:
-                      {pokemon?.types?.map((types) => (
-                        <li key={types.slot}>{types.type.name}</li>
+                      {pokemon?.pokeTypes?.map((types) => (
+                        <li key={types}>{types}</li>
                       ))}
                     </ul>
                     <p className="description" key={pokemon.flavorText}>{pokemon.flavorText}</p>
@@ -138,7 +138,7 @@ function PokemonList() {
                       pokemon.height,
                       pokemon.weight,
                       pokemon.flavorText,
-                      pokemon.types,
+                      pokemon.pokeTypes,
                       pokemon.image
                     );
                   }}
