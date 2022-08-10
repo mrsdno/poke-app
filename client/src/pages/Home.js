@@ -5,10 +5,16 @@ import "./pages.css"
 // importing pages
 import Login from './Login';
 import Signup from './Signup';
+import AllTeams from '../components/AllTeams/index.js';
 
 import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_TEAMS } from "../utils/queries";
 
 function Home() {
+
+    const { loading, data} = useQuery(QUERY_TEAMS);
+    const teams = data?.teams || [];
 
     const loggedIn = Auth.loggedIn();
   return (
@@ -31,6 +37,15 @@ function Home() {
                 <Login />
             ) : (
                 <Signup />
+            )}
+
+            {loading ? (
+                <div>Loading...</div>
+            ) : (
+                <AllTeams
+                    teams={teams}
+                    title="Gotta catch 'em all!"
+                    />
             )}
 
         <img className="pokemon-hello" 

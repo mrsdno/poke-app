@@ -67,7 +67,7 @@ function PokemonTeam() {
           <input
             id="team-name"
             value={teamName}
-            placeholder="team name"
+            placeholder="Name your team!"
             onChange={handleChange}
             className="input-bar"
           ></input>

@@ -53,7 +53,7 @@ const TeamList = ({ teams }) => {
             <div className="choose-pokemon">
               {team.pokemon.length < 6 ? (
                 <Link to={"/pokemonlist"} state={{ teamIdArray: team._id }}>
-                  Choose Your Pokmon
+                  Choose Your Pokémon
                 </Link>
               ) : (
                 <p>What a great team!</p>
