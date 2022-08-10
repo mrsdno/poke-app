@@ -11,6 +11,10 @@ const TeamList = ({ teams }) => {
 
   console.log(teams);
 
+  const deleteTeam = () => {
+    
+  }
+
   return (
     <div>
       <h1>My Teams</h1>
@@ -53,11 +57,11 @@ const TeamList = ({ teams }) => {
             <div className="choose-pokemon">
               {team.pokemon.length < 6 ? (
                 <Link to={"/pokemonlist"} state={{ teamIdArray: team._id }}>
-                  Choose Your Pokémon
+                  <button>Choose Your Pokémon</button>
                 </Link>
               ) : (
                 <p>❌ Six Pokemon Max Per Team</p>
-              )}
+              )} <button onClick={deleteTeam}>Delete Team</button>
             </div>
           </div>
         ))}
