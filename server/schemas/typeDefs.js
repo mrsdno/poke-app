@@ -63,8 +63,8 @@ const typeDefs = gql`
         addPokemon(
             teamId: String!,
             name: String!,
-            height: String!,
-            weight: String!, 
+            height: Int!,
+            weight: Int!, 
             type: [String]!,
             image: String!, 
             description: String!

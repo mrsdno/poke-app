@@ -54,8 +54,8 @@ function PokemonList() {
         variables: {
           teamId: teamId,
           name: name,
-          height: `"${height}"`,
-          weight: `"${weight}"`,
+          height: height,
+          weight: weight,
           description: description,
           image: image,
           type: type,
@@ -64,7 +64,7 @@ function PokemonList() {
     } catch (e) {
       console.log(e);
     }
-    window.location.assign("/pokemonteam");
+    // window.location.assign("/pokemonteam");
   }
 
   return (
