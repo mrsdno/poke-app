@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css"
 
-import  Header  from './components/Header/Header'
+// import  Header  from './components/Header/Header'
 import  Footer  from './components/Footer/Footer'
 
 import Home from "./pages/Home";
@@ -50,7 +50,7 @@ function App() {
             <ApolloProvider client={client}>
                 <Router>
                     <header>
-                        <Header />
+                        {/* <Header /> */}
                     </header>
                     <Routes>
                         <Route path="/" element={<Home />} />
