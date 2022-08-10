@@ -6,6 +6,7 @@ Are you a Pokémon Master? Released in 1996, Pokémon Blue and Red changed the g
 
 Poke-App allows any Pokémon Master to create their own Dream Team from the First Generation's 151 Pokémon. 
 
+[Deloyed Link](https://best-team-poke-app.herokuapp.com/)
 
 ## Tables of Contents:
 * [Technologies](#technologies)
@@ -65,7 +66,7 @@ Poke-App allows any Pokémon Master to create their own Dream Team from the Firs
 * devDependency: [concurrently v7.3.0](https://www.npmjs.com/package/concurrently)
 
 ## Screenshot:
-* [Heroku Link:]()
+* [Heroku Link:](https://best-team-poke-app.herokuapp.com/)
 
 * Screenshot:
 ![Homepage Screenshot of Poke App - the Gen 1 Poke Team Builder](./client/src/assets/Poke%20App-Screenshot.PNG)
