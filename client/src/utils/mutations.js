@@ -91,6 +91,18 @@ export const EDIT_TEAM = gql `
 // }
 
 
+export const DELETE_TEAM = gql`
+  mutation DeleteTeam(
+    $teamId: String!
+  ){
+    deleteTeam(
+      teamId: $teamId
+    ){
+      _id
+    }
+  }
+`;
+
 export const ADD_POKEMON = gql`
   mutation AddPokemon(
     $teamId: String!

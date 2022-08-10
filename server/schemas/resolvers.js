@@ -120,7 +120,21 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in to update your team!');
 
-        },        
+        },
+        
+        deleteTeam: async(parent, args, context) => {
+            if(context.user) {
+                const unwantedTeam = await Team.findOneAndDelete({ ...args, username: context.user.username});
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { teams: unwantedTeam._id}},
+                    { new: true }
+                )
+
+                return unwantedTeam;
+            }
+        },
 
         addPokemon: async (parent, { teamId, name, height, weight, type, image, description }, context) => {
             if(context.user) {
