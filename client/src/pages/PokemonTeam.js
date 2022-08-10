@@ -69,6 +69,7 @@ function PokemonTeam() {
             value={teamName}
             placeholder="team name"
             onChange={handleChange}
+            className="input-bar"
           ></input>
           <button className="btn-1" type="submit" id="add-team">
             Add Team
