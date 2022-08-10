@@ -32,9 +32,9 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                            <button className="m-2"><Link to="/login">Login</Link></button>
+                            <Link to="/login"><button className="btn-1">Login</button></Link>
 
-                            <Link to="/signup" className="m-2"><button>Sign-up</button></Link>
+                            <Link to="/signup"><button className='btn-1'>Sign-up</button></Link>
                         </>
                     )}
                 </nav>

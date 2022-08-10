@@ -57,7 +57,7 @@ body{
   font-size: x-large;
   text-shadow: 1.2px 1.2px #1d1d1b;
   cursor: pointer;
-  box-shadow: 2px 2px 3px rgba(255, 203, 5, 0.5);
+  box-shadow: 2px 2px 3px rgba(255, 234, 49, 0.7);
 }
 .btn-1:hover{
   background-color: var(--color-primary-t);
@@ -90,7 +90,7 @@ body{
   font-size: x-large;
   text-shadow: 1.2px 1.2px #1d1d1b;
   cursor: pointer;
-  box-shadow: 2px 2px 3px rgba(255, 203, 5, 0.5);
+  box-shadow: 2px 2px 3px rgba(255, 234, 49, 0.7);
 }
 .btn-2:hover{
   background-color: var(--color-third) ;
