@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { fetchPokeApi } from "../utils/PokeApi";
+import { fetchPokeApi } from "../../utils/PokeApi";
 import { useMutation } from "@apollo/client";
-import { ADD_POKEMON } from "../utils/mutations";
-import { useLocation } from 'react-router-dom';
+import { ADD_POKEMON } from "../../utils/mutations";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 function PokemonList() {
   const [pokemonList, setPokemonList] = useState("");
@@ -20,7 +21,6 @@ function PokemonList() {
   const { teamIdArray } = location.state;
 
   const teamId = JSON.stringify(teamIdArray).replace(/['"]+/g, "");
-
 
   // do the pokemon api calls and then display them once loaded
   async function handleGetPokemon() {
@@ -41,8 +41,14 @@ function PokemonList() {
     );
   }
 
-  async function handleAddPokemon(name, height, weight, description, type, image) {
-
+  async function handleAddPokemon(
+    name,
+    height,
+    weight,
+    description,
+    type,
+    image
+  ) {
     try {
       const { data } = await addPokemon({
         variables: {
@@ -55,19 +61,17 @@ function PokemonList() {
           type: `"${type}"`,
         },
       });
-     } catch (e) {
-        console.log(e);
-      }
-      window.location.assign('/pokemonteam')
+    } catch (e) {
+      console.log(e);
+    }
+    window.location.assign("/pokemonteam");
   }
-
-
 
   return (
     <div className="pokemon-list">
       <div>
         <input
-          placeholder="Enter Post Title"
+          placeholder="Search by name..."
           onChange={(event) => setQueryName(event.target.value)}
         />
         <select
@@ -112,18 +116,21 @@ function PokemonList() {
             .map((pokemon) => (
               <div className="pokemonCard" key={pokemon.id}>
                 <h1 key={pokemon.name}>{pokemon.name}</h1>
-                <img key={pokemon.img} src={pokemon.image} />
-                <p key={pokemon.height}>height: {pokemon.height}</p>
-                <p key={pokemon.weight}>weight: {pokemon.weight}</p>
-                <ul>
-                  {" "}
-                  Types:
-                  {pokemon?.types?.map((types) => (
-                    <li key={types.slot}>{types.type.name}</li>
-                  ))}
-                </ul>
-                <p key={pokemon.flavorText}>{pokemon.flavorText}</p>
-                <p key={pokemon.color}>color: {pokemon.color}</p>
+                <div className="card-wrapper">
+                  <img key={pokemon.img} src={pokemon.image} />
+                  <div className="text-wrapper">
+                    <p key={pokemon.height}>Height: {pokemon.height}</p>
+                    <p key={pokemon.weight}>Weight: {pokemon.weight}</p>
+                    <p key={pokemon.color}>Color: {pokemon.color}</p>
+                    <ul>
+                      Types:
+                      {pokemon?.types?.map((types) => (
+                        <li key={types.slot}>{types.type.name}</li>
+                      ))}
+                    </ul>
+                    <p className="description" key={pokemon.flavorText}>{pokemon.flavorText}</p>
+                  </div>
+                </div>
                 <button
                   onClick={() => {
                     handleAddPokemon(
@@ -136,9 +143,8 @@ function PokemonList() {
                     );
                   }}
                 >
-                  Add Pokemon to Team
-                  </button>
-
+                  Add {pokemon.name} to Team
+                </button>
               </div>
             ))}
       </div>
@@ -146,7 +152,4 @@ function PokemonList() {
   );
 }
 
-
-
-  
 export default PokemonList;

@@ -56,7 +56,7 @@ const TeamList = ({ teams }) => {
                   Choose Your Pokmon
                 </Link>
               ) : (
-                <div>Sorry, only 6 pokemon per team!</div>
+                <p>What a great team!</p>
               )}
             </div>
           </div>
