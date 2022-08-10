@@ -28,6 +28,7 @@ body{
 .container-v{
   display: flex;
   flex-direction: column;
+  justify-content: center
 }
 /*container horizontal */
 .container-h{
