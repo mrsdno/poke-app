@@ -95,10 +95,10 @@ export const ADD_POKEMON = gql`
   mutation AddPokemon(
     $teamId: String!
     $name: String!
-    $height: String!
-    $weight: String!
+    $height: Int!
+    $weight: Int!
     $description: String!
-    $type: [String!]
+    $type: [String]!
     $image: String!
   ) {
     addPokemon(
