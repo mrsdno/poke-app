@@ -64,7 +64,7 @@ function PokemonList() {
     } catch (e) {
       console.log(e);
     }
-    // window.location.assign("/pokemonteam");
+    window.location.assign("/pokemonteam");
   }
 
   return (
