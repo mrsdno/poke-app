@@ -54,7 +54,11 @@ function PokemonTeam() {
       } catch (e) {
         console.error(e);
       }
-    };
+  };
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   
   return (
     <div className="PokemonTeam">
@@ -65,15 +69,14 @@ function PokemonTeam() {
             value={teamName}
             placeholder="team name"
             onChange={handleChange}
+            className="input-bar"
           ></input>
           <button className="btn-1" type="submit" id="add-team">
             Add Team
           </button>
         </form>
         <div className="container-h ">
-          {loadingTeams ? (
-            <div>Loading...</div>
-          ) : (
+          {teams && (
             <TeamList
               teams={teams.teams}
             />
