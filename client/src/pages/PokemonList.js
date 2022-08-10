@@ -3,7 +3,7 @@ import { fetchPokeApi } from "../utils/PokeApi";
 import { useMutation } from "@apollo/client";
 import { ADD_POKEMON } from "../utils/mutations";
 import { useLocation } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 function PokemonList() {
   const [pokemonList, setPokemonList] = useState("");
@@ -58,8 +58,7 @@ function PokemonList() {
      } catch (e) {
         console.log(e);
       }
-
-
+      window.location.assign('/pokemonteam')
   }
 
 
@@ -138,7 +137,8 @@ function PokemonList() {
                   }}
                 >
                   Add Pokemon to Team
-                </button>
+                  </button>
+
               </div>
             ))}
       </div>
