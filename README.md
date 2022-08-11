@@ -72,7 +72,7 @@ Poke-App allows any Pokémon Master to create their own Dream Team from the Firs
 ![Homepage Screenshot of Poke App - the Gen 1 Poke Team Builder](./client/src/assets/Poke%20App-Screenshot.PNG)
 
 * Gif:
-
+![GIF display for Poke App](./client/src/assets/Poke-App.gif)
 
 ## Installation:
 * Download the zip file, or clone to your local machine.
