@@ -97,7 +97,9 @@ export const DELETE_TEAM = gql`
   ){
     deleteTeam(
       teamId: $teamId
-    )
+    ){
+      _id
+    }
   }
 `;
 

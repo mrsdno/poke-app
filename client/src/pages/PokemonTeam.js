@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_TEAM } from '../utils/mutations';
@@ -17,7 +18,7 @@ function PokemonTeam() {
     update(cache, { data: { addTeam } }) {
       // could not exist yet, so wrap in a try/catch
       try {
-        const { me } = cache.readQuery({ query: QUERY_ME } );
+        const { me } = cache.readQuery({ query: QUERY_ME });
 
         // update team array's cache
         cache.writeQuery({
@@ -36,37 +37,37 @@ function PokemonTeam() {
       cache.writeQuery({
         query: QUERY_TEAMS,
         variables: { username: userData?.me.username },
-        data: { teams: [addTeam, ...teams]},
+        data: { teams: [addTeam, ...teams] },
       });
     }
   })
 
-      const handleChange = (event) => {
-        if (event.target.value.length <= 280) {
-          setText(event.target.value);
-        }
+  const handleChange = (event) => {
+    if (event.target.value.length <= 280) {
+      setText(event.target.value);
+    }
   };
-  
+
   const handleAddTeam = async (event) => {
     event.preventDefault();
     // console.log(teams);
 
-    if(!teamName){
-      setErrorMessage('Please enter a team name!')     
+    if (!teamName) {
+      setErrorMessage('Please enter a team name!')
     }
-      try {
-        const { data } = await addTeam({
-          variables: { teamName, userData, isFavorite: false },
-        });
-      } catch (e) {
-        console.error(e);
-      }
+    try {
+      const { data } = await addTeam({
+        variables: { teamName, userData, isFavorite: false },
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <div className="PokemonTeam">
       <div className="container-v teambox">
@@ -93,8 +94,8 @@ function PokemonTeam() {
               {errorMessage}
             </p>
           </div>
-          )}
-        
+        )}
+
 
         <div className="container-h ">
           {teams && (

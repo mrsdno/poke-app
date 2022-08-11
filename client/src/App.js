@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./App.css"
 
 
@@ -48,7 +47,6 @@ function App() {
 
     return (
         <div>
-            
             <ApolloProvider client={client}>
                 <Router>
                     <header>
@@ -62,16 +60,13 @@ function App() {
                         <Route path="/pokemonlist" element={<PokemonList />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>
+                    <footer>
+                        <Footer />
+                    </footer>
                 </Router>
             </ApolloProvider>
-
-            <footer>
-                <Footer />
-            </footer>
         </div>
-
-
-    )
+    );
 }
 
 

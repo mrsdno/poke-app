@@ -75,8 +75,8 @@ const typeDefs = gql`
             pokemon: PokemonInput!
             ): Team
         deleteTeam(
-            _id: String!            
-        ): Team
+            teamId: String!            
+        ): User
     }
 `;
 

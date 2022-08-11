@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useQuery, useMutation } from '@apollo/client'
+import { DELETE_TEAM } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 
 import { useQuery, useMutation } from '@apollo/client'
 import { DELETE_TEAM } from "../../utils/mutations";
@@ -9,22 +13,31 @@ import './style.css'
 
 const TeamList = ({ teams }) => {
 
-  // not sure if needed to grab ID for team
-  // const { loading, data: userData } = useQuery(QUERY_ME);
+  const navigate = useNavigate();
+  const { loading, data: userData } = useQuery(QUERY_ME);
+  const [deleteTeam, { error }] = useMutation(DELETE_TEAM);
 
-  // const [deleteTeam, { error }] = useMutation(DELETE_TEAM);
+  const handleDeleteTeam = async (teamId) => {
 
-  // const handleDeleteTeam = async (event) => {
-  //   try {
-  //     const { data } = await deleteTeam({
-  //       // team._id teamId and _id all not defined, not sure how to grab the ID
-  //       variables: {}
-  //     });
-  //   } catch (e){
-  //     console.error(e);
-  //   }
-  // };
-    
+    console.log(teamId);
+
+    try {
+      const deletedTeam = await deleteTeam({
+        // team._id teamId and _id all not defined, not sure how to grab the ID
+        variables: { teamId: teamId }
+      });
+      
+      console.log(deletedTeam.data);
+
+      if (deletedTeam.data) {
+        navigate('/pokemonteam', { replace: true })
+      }
+
+    } catch (e){
+      console.error(e);
+    }
+  };
+
   if (!teams.length) {
     return <p className="no-teams">No teams yet!</p>;
   }
@@ -42,7 +55,7 @@ const TeamList = ({ teams }) => {
             <div className="pokemon-wrapper">
               {team.pokemon &&
                 team.pokemon.map((pokemon) => (
-                  <div className="each-pokemon">
+                  <div key={pokemon.name} className="each-pokemon">
                     <h2 className="pokemon-name">{pokemon.name}</h2>
                     <img
                       className="card-img-top team-image"
@@ -55,7 +68,7 @@ const TeamList = ({ teams }) => {
                         <br />
                         Weight: {pokemon.weight} hectograms
                         <br />
-                                Type: {pokemon.type && pokemon.type.map((type) => <p>{type}</p>)}
+                        Type: {pokemon.type && pokemon.type.map((type) => <p key={type}>{type}</p>)}
                       </p>
                     </div>
                   </div>
@@ -65,7 +78,7 @@ const TeamList = ({ teams }) => {
               {team.pokemon.length < 6 ? (
                 // <>
                 <Link to={"/pokemonlist"} state={{ teamIdArray: team._id }}>
-                  Choose Your Pokémon
+                  <button>Choose Your Pokémon</button>
                 </Link>
 
               //   button used to delete Team
@@ -82,7 +95,13 @@ const TeamList = ({ teams }) => {
               
               ) : (
                 <p>❌ Six Pokemon Max Per Team</p>
-              )}
+              )} <button
+                      className="btn-2-s border delete-pokemon"
+                      type="click"
+                      id="delete-pokemon"
+                      data-id=""
+                      onClick={() => handleDeleteTeam(team._id)}
+                  >Delete Team</button>
             </div>
           </div>
         ))}

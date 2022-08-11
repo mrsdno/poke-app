@@ -6,6 +6,7 @@ Are you a Pokémon Master? Released in 1996, Pokémon Blue and Red changed the g
 
 Poke-App allows any Pokémon Master to create their own Dream Team from the First Generation's 151 Pokémon. 
 
+[Deloyed Link](https://best-team-poke-app.herokuapp.com/)
 
 ## Tables of Contents:
 * [Technologies](#technologies)
@@ -43,10 +44,12 @@ Poke-App allows any Pokémon Master to create their own Dream Team from the Firs
 
 ## NPM Packages:
 * [apollo-server-express v3.10.0](https://www.npmjs.com/package/apollo-server-express)
+* [@apollo/client v3.6.9](https://www.npmjs.com/package/@apollo/client)
 * [bcrypt v5.0.1](https://www.npmjs.com/package/bcrypt)
 * [express v4.18.1](https://www.npmjs.com/package/express)
 * [graphql v16.5.0](https://www.npmjs.com/package/graphql)
 * [jsonwebtoken v8.5.1](https://www.npmjs.com/package/jsonwebtoken)
+* [jwt-decode v3.1.2](https://www.npmjs.com/package/jwt-decode)
 * [mongoose v6.5.0](https://www.npmjs.com/package/mongoose/v/6.5.0)
 * [nodemon v2.0.19](https://www.npmjs.com/package/nodemon)
 * [@testing-library/jest-dom v5.16.4](https://www.npmjs.com/package/@testing-library/jest-dom)
@@ -58,14 +61,15 @@ Poke-App allows any Pokémon Master to create their own Dream Team from the Firs
 * [react-router-dom v6.3.0](https://www.npmjs.com/package/react-router-dom)
 * [react-scripts v5.0.1](https://www.npmjs.com/package/react-scripts)
 * [web-vitals v2.1.4](https://www.npmjs.com/package/web-vitals)
+* [http-proxy-middleware v2.0.6](https://www.npmjs.com/package/http-proxy-middleware)
 
 * devDependency: [concurrently v7.3.0](https://www.npmjs.com/package/concurrently)
 
 ## Screenshot:
-* [Heroku Link:]()
+* [Heroku Link:](https://best-team-poke-app.herokuapp.com/)
 
 * Screenshot:
-
+![Homepage Screenshot of Poke App - the Gen 1 Poke Team Builder](./client/src/assets/Poke%20App-Screenshot.PNG)
 
 * Gif:
 
@@ -73,7 +77,6 @@ Poke-App allows any Pokémon Master to create their own Dream Team from the Firs
 ## Installation:
 * Download the zip file, or clone to your local machine.
 * Open a new terminal in the correct directory, and run command: `npm install`
-* 
 
 ## Usage:
 * Once fully downloaded and installed, use command: `npm run develop`
